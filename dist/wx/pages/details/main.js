@@ -13,14 +13,15 @@ global.webpackJsonpMpvue([5],[
 /* 9 */,
 /* 10 */,
 /* 11 */,
-/* 12 */
+/* 12 */,
+/* 13 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(14);
 
 
 
@@ -34,16 +35,16 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MOD
 app.$mount();
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_template_compiler_index_id_data_v_002d76b9_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_template_compiler_index_id_data_v_002d76b9_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(17);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(14)
+  __webpack_require__(15)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -87,284 +88,306 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 15 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ __webpack_exports__["a"] = ({
-  data: function data() {
-    return {
-      show: false
-    };
-  },
-
-  methods: {
-    showPopup: function showPopup() {
-      this.show = true;
-    },
-    onClose: function onClose() {
-      this.show = false;
-    },
-
-    toCart: function toCart() {
-      console.log('点击了一下下');
-      console.log(wx);
-      wx.navigateTo({
-        url: '/pages/cart/main'
-      });
-    }
-  }
-
-});
 
 /***/ }),
 /* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+var _this2 = this;
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+
+    created: function created() {
+        var _this = this;
+
+        this.scrWidth = wx.getSystemInfoSync().windowWidth;
+        wx.request({
+            url: 'http://192.168.0.110:5000/getproduct?ID=201616060301',
+            success: function success(res) {
+                console.log('【发起网络请求成功！】', res.data);
+                _this.detailJson = res.data;
+                _this.swiWidth = _this.scrWidth / _this.detailJson.BIratio;
+            }
+        });
+    },
+
+    data: {
+        scrWidth: 20, //屏幕原始尺寸
+        URL: 'http://192.168.0.110:5000/',
+        show: false, //产品参数是否显示
+        detailJson: 666, //产品完整Json数据
+        tagSelected: 2,
+        sTest: 666
+    },
+
+    methods: {
+        showPopup: function showPopup() {
+            this.show = true;
+        },
+        onClose: function onClose() {
+            this.show = false;
+            console.log(this.detailJson);
+            console.log(this.scrWidth / this.detailJson.BIratio);
+        },
+        toCart: function toCart() {
+            console.log('点击了一下下');
+            console.log(wx);
+            wx.navigateTo({
+                url: '/pages/cart/main'
+            });
+        },
+        tagSelect: function tagSelect(event, i) {
+            console.log('点击了一下');
+            console.log(i);
+            _this2.tagSelected = i;
+            console.log('当前tagSelected：', _this2.tagSelected);
+        },
+        selTest: function selTest(event, i) {
+            _this2.sTest = i;
+            console.log('test点击事件', _this2.sTest);
+        }
+    }
+
+});
+
+/***/ }),
+/* 17 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('swiper', {
     staticClass: "swiper",
+    style: ({
+      height: _vm.scrWidth / _vm.detailJson.BIratio + 'px'
+    }),
     attrs: {
       "indicator-dots": "true"
     }
-  }, [_c('swiper-item', {
-    attrs: {
-      "mpcomid": '0'
-    }
-  }, [_c('img', {
-    staticClass: "swiperItem",
-    attrs: {
-      "src": "/static/demo/1.jpg",
-      "alt": ""
-    }
-  })]), _vm._v(" "), _c('swiper-item', {
-    attrs: {
-      "mpcomid": '1'
-    }
-  }, [_c('img', {
-    staticClass: "swiperItem",
-    attrs: {
-      "src": "/static/demo/2.jpg",
-      "alt": ""
-    }
-  })]), _vm._v(" "), _c('swiper-item', {
-    attrs: {
-      "mpcomid": '2'
-    }
-  }, [_c('img', {
-    staticClass: "swiperItem",
-    attrs: {
-      "src": "/static/demo/3.jpg",
-      "alt": ""
-    }
-  })]), _vm._v(" "), _c('swiper-item', {
-    attrs: {
-      "mpcomid": '3'
-    }
-  }, [_c('img', {
-    staticClass: "swiperItem",
-    attrs: {
-      "src": "/static/demo/4.jpg",
-      "alt": ""
-    }
-  })])], 1), _vm._v(" "), _c('div', {
+  }, _vm._l((_vm.detailJson.BIs), function(item, index) {
+    return _c('swiper-item', {
+      key: index,
+      attrs: {
+        "wx:key": "index",
+        "mpcomid": '0_' + index
+      }
+    }, [_c('img', {
+      staticClass: "swiperItem",
+      attrs: {
+        "src": _vm.URL + '/products/' + _vm.detailJson.ID + '/BI/' + item,
+        "alt": ""
+      }
+    })])
+  })), _vm._v(" "), _c('div', {
     staticClass: "priceText"
   }, [_c('p', {
     staticClass: "price"
-  }, [_vm._v("￥368")]), _c('span', {
+  }, [_vm._v("￥" + _vm._s(_vm.detailJson.Price))]), _vm._v(" "), (_vm.detailJson.orprice) ? _c('span', {
     staticClass: "orprice"
-  }, [_vm._v("原价￥450.52")])], 1), _vm._v(" "), _c('h1', {
+  }, [_vm._v("原价￥" + _vm._s(_vm.detailJson.orprice))]) : _vm._e()], 1), _vm._v(" "), _c('h1', {
     staticClass: "title"
-  }, [_vm._v("    法式婚纱2019新款新娘森系超仙梦幻女小个子\n      拖尾简单显瘦礼服")]), _vm._v(" "), _c('van-tag', {
-    staticClass: "tag",
+  }, [_vm._v("    " + _vm._s(_vm.detailJson.Name))]), _vm._v(" "), _c('div', _vm._l((_vm.detailJson.tags), function(item, index) {
+    return (_vm.detailJson.tags) ? _c('div', {
+      key: index,
+      staticClass: "tag",
+      attrs: {
+        "wx:key": "index"
+      }
+    }, [(index % 4 === 0) ? _c('van-tag', {
+      attrs: {
+        "round": "",
+        "type": "primary",
+        "mpcomid": '1_' + index
+      }
+    }, [_vm._v(_vm._s(item))]) : _vm._e(), _vm._v(" "), (index % 4 === 1) ? _c('van-tag', {
+      attrs: {
+        "round": "",
+        "type": "success",
+        "mpcomid": '2_' + index
+      }
+    }, [_vm._v(_vm._s(item))]) : _vm._e(), _vm._v(" "), (index % 4 === 2) ? _c('van-tag', {
+      attrs: {
+        "round": "",
+        "type": "danger",
+        "mpcomid": '3_' + index
+      }
+    }, [_vm._v(_vm._s(item))]) : _vm._e(), _vm._v(" "), (index % 4 === 3) ? _c('van-tag', {
+      attrs: {
+        "round": "",
+        "type": "warning",
+        "mpcomid": '4_' + index
+      }
+    }, [_vm._v(_vm._s(item))]) : _vm._e()], 1) : _vm._e()
+  })), _vm._v(" "), _c('div', {
+    staticClass: "noticeBar"
+  }, [(_vm.detailJson.tip) ? _c('van-notice-bar', {
     attrs: {
-      "round": "",
-      "type": "primary",
-      "mpcomid": '4'
-    }
-  }, [_vm._v("可配送港澳")]), _vm._v(" "), _c('van-tag', {
-    staticClass: "tag",
-    attrs: {
-      "round": "",
-      "type": "success",
+      "left-icon": "http://192.168.0.110:5000/icon/喇叭.png",
+      "text": _vm.detailJson.tip,
       "mpcomid": '5'
     }
-  }, [_vm._v("库存充足")]), _vm._v(" "), _c('van-tag', {
-    staticClass: "tag",
-    attrs: {
-      "round": "",
-      "type": "danger",
-      "mpcomid": '6'
-    }
-  }, [_vm._v("7天无理由退货")]), _vm._v(" "), _c('van-tag', {
-    staticClass: "tag",
-    attrs: {
-      "round": "",
-      "type": "warning",
-      "mpcomid": '7'
-    }
-  }, [_vm._v("精准达")]), _vm._v(" "), _c('div', {
-    staticClass: "noticeBar"
-  }, [_c('van-notice-bar', {
-    attrs: {
-      "left-icon": "https://img.yzcdn.cn/1.png",
-      "text": "促销:购买一件可优惠换购热销商品,促销:购买一件可优惠换购热销商品,促销:购买一件可优惠换购热销商品重要的事情说三遍！！！",
-      "mpcomid": '8'
-    }
-  })], 1), _vm._v(" "), _c('van-cell', {
+  }) : _vm._e()], 1), _vm._v(" "), _c('van-cell', {
     attrs: {
       "title": "请选择",
       "value": "请选择商品类型和数量",
       "center": true,
       "clickable": false,
       "arrow-direction": "down",
-      "mpcomid": '9'
+      "mpcomid": '6'
     }
   }), _vm._v(" "), _c('view', {
     staticClass: "select"
@@ -380,27 +403,65 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "selText chanpin"
   }, [_vm._v("产品")]), _vm._v(" "), _c('div', {
     staticClass: "proType"
-  }, [_c('p', {
-    staticClass: "proTag"
-  }, [_vm._v("500g")]), _vm._v(" "), _c('p', {
-    staticClass: "proTag"
-  }, [_vm._v("50000g")]), _vm._v(" "), _c('p', {
-    staticClass: "proTag"
-  }, [_vm._v("48瓶每箱")])], 1)], 1), _vm._v(" "), _c('div', {
+  }, [_c('div', {
+    staticClass: "blue",
+    attrs: {
+      "eventid": '0'
+    },
+    on: {
+      "click": function($event) {
+        _vm.selTest(_vm.event, 1)
+      }
+    }
+  }, [_vm._v("1111111")]), _vm._v(" "), _c('div', {
+    class: (_vm.sTest == 2) ? 'blue' : '',
+    attrs: {
+      "eventid": '1'
+    },
+    on: {
+      "click": function($event) {
+        _vm.selTest(_vm.event, 2)
+      }
+    }
+  }, [_vm._v("2222222")]), _vm._v(" "), _c('div', {
+    class: this.sTest == 3 ? 'blue' : 'null',
+    attrs: {
+      "eventid": '2'
+    },
+    on: {
+      "click": function($event) {
+        _vm.selTest(_vm.event, 3)
+      }
+    }
+  }, [_vm._v("3333333")]), _vm._v(" "), _vm._l((_vm.detailJson.TypeandPrice), function(item, index) {
+    return _c('div', {
+      key: index,
+      class: _vm.sTest == index ? 'blue' : 'null',
+      attrs: {
+        "wx:key": "index",
+        "eventid": '3_' + index
+      },
+      on: {
+        "click": function($event) {
+          _vm.selTest(_vm.event, index)
+        }
+      }
+    }, [_vm._v(_vm._s(item))])
+  })], 2)], 1), _vm._v(" "), _c('div', {
     staticClass: "mount"
   }, [_c('p', {
     staticClass: "selText"
   }, [_vm._v("数量")]), _vm._v(" "), _c('van-stepper', {
     attrs: {
       "value": 1,
-      "mpcomid": '10'
+      "mpcomid": '7'
     }
   })], 1)]), _vm._v(" "), _c('van-cell', {
     attrs: {
       "title": "商品参数",
       "is-link": "",
-      "eventid": '0',
-      "mpcomid": '11'
+      "eventid": '4',
+      "mpcomid": '8'
     },
     on: {
       "click": _vm.showPopup
@@ -410,101 +471,65 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "show": _vm.show,
       "position": "bottom",
       "custom-style": "height: 60%",
-      "eventid": '1',
-      "mpcomid": '12'
+      "eventid": '5',
+      "mpcomid": '9'
     },
     on: {
       "close": _vm.onClose
     }
   }, [_c('div', {
     staticClass: "chart"
-  }, [_c('div', {
-    staticClass: "chartLine"
-  }, [_c('div', {
-    staticClass: "proName"
-  }, [_vm._v("属性名")]), _vm._v(" "), _c('div', {
-    staticClass: "proValue"
-  }, [_vm._v("属性值")])]), _vm._v(" "), _c('div', {
-    staticClass: "chartLine"
-  }, [_c('div', {
-    staticClass: "proName"
-  }, [_vm._v("大小")]), _vm._v(" "), _c('div', {
-    staticClass: "proValue"
-  }, [_vm._v("50码")])]), _vm._v(" "), _c('div', {
-    staticClass: "chartLine"
-  }, [_c('div', {
-    staticClass: "proName"
-  }, [_vm._v("材质")]), _vm._v(" "), _c('div', {
-    staticClass: "proValue"
-  }, [_vm._v("牛津布")])]), _vm._v(" "), _c('div', {
-    staticClass: "chartLine"
-  }, [_c('div', {
-    staticClass: "proName"
-  }, [_vm._v("适用性别")]), _vm._v(" "), _c('div', {
-    staticClass: "proValue"
-  }, [_vm._v("男女均可")])]), _vm._v(" "), _c('div', {
-    staticClass: "chartLine"
-  }, [_c('div', {
-    staticClass: "proName"
-  }, [_vm._v("透气性能")]), _vm._v(" "), _c('div', {
-    staticClass: "proValue"
-  }, [_vm._v("良好")])]), _vm._v(" "), _c('div', {
-    staticClass: "chartLine"
-  }, [_c('div', {
-    staticClass: "proName"
-  }, [_vm._v("属性名")]), _vm._v(" "), _c('div', {
-    staticClass: "proValue"
-  }, [_vm._v("属性值")])]), _vm._v(" "), _c('div', {
-    staticClass: "chartLine"
-  }, [_c('div', {
-    staticClass: "proName"
-  }, [_vm._v("大小")]), _vm._v(" "), _c('div', {
-    staticClass: "proValue"
-  }, [_vm._v("50码")])]), _vm._v(" "), _c('div', {
-    staticClass: "chartLine"
-  }, [_c('div', {
-    staticClass: "proName"
-  }, [_vm._v("材质")]), _vm._v(" "), _c('div', {
-    staticClass: "proValue"
-  }, [_vm._v("牛津布")])]), _vm._v(" "), _c('div', {
-    staticClass: "chartLine"
-  }, [_c('div', {
-    staticClass: "proName"
-  }, [_vm._v("适用性别")]), _vm._v(" "), _c('div', {
-    staticClass: "proValue"
-  }, [_vm._v("男女均可")])]), _vm._v(" "), _c('div', {
-    staticClass: "chartLine"
-  }, [_c('div', {
-    staticClass: "proName"
-  }, [_vm._v("透气性能")]), _vm._v(" "), _c('div', {
-    staticClass: "proValue"
-  }, [_vm._v("良好")])])])]), _vm._v(" "), _c('div', {
+  }, _vm._l((_vm.detailJson.Paras), function(item, index) {
+    return _c('div', {
+      staticClass: "chartLine",
+      attrs: {
+        "wx:key": "index"
+      }
+    }, [_c('div', {
+      staticClass: "proName"
+    }, [_vm._v(_vm._s(item[0]))]), _vm._v(" "), _c('div', {
+      staticClass: "proValue"
+    }, [_vm._v(_vm._s(item[1]))])])
+  }))]), _vm._v(" "), _c('div', {
     staticClass: "detailText"
   }, [_c('van-tag', {
     staticClass: "detailTag",
     attrs: {
       "round": "",
       "type": "primary",
-      "mpcomid": '13'
+      "mpcomid": '10'
     }
-  }, [_vm._v("商品详情")])], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('van-goods-action', {
+  }, [_vm._v("商品详情")])], 1), _vm._v(" "), _c('div', {
+    staticClass: "imgBox"
+  }, _vm._l((_vm.detailJson.DIs), function(item, index) {
+    return _c('img', {
+      staticClass: "detailImg",
+      style: ({
+        height: _vm.scrWidth / item.ratio + 'px'
+      }),
+      attrs: {
+        "wx:key": "index",
+        "src": _vm.URL + '/products/' + _vm.detailJson.ID + '/DI/' + item.name
+      }
+    })
+  })), _vm._v(" "), _c('van-goods-action', {
     attrs: {
-      "mpcomid": '18'
+      "mpcomid": '15'
     }
   }, [_c('van-goods-action-icon', {
     attrs: {
       "icon": "chat-o",
       "text": "客服",
       "dot": "",
-      "mpcomid": '14'
+      "mpcomid": '11'
     }
   }), _vm._v(" "), _c('van-goods-action-icon', {
     attrs: {
       "icon": "cart-o",
       "text": "购物车",
       "info": "5",
-      "eventid": '2',
-      "mpcomid": '15'
+      "eventid": '6',
+      "mpcomid": '12'
     },
     on: {
       "click": _vm.toCart
@@ -513,42 +538,18 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "text": "加入购物车",
       "type": "warning",
-      "mpcomid": '16'
+      "mpcomid": '13'
     }
   }), _vm._v(" "), _c('van-goods-action-button', {
     attrs: {
       "text": "立即购买",
-      "mpcomid": '17'
+      "mpcomid": '14'
     }
   })], 1), _vm._v(" "), _c('div', {
     staticClass: "lastTip"
   }, [_vm._v("亲！到底了油！^-^")])], 1)
 }
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "imgBox"
-  }, [_c('img', {
-    staticClass: "detailImg",
-    attrs: {
-      "src": "/static/demo/1.jpg"
-    }
-  }), _vm._v(" "), _c('img', {
-    staticClass: "detailImg",
-    attrs: {
-      "src": "/static/demo/2.jpg"
-    }
-  }), _vm._v(" "), _c('img', {
-    staticClass: "detailImg",
-    attrs: {
-      "src": "/static/demo/3.jpg"
-    }
-  }), _vm._v(" "), _c('img', {
-    staticClass: "detailImg",
-    attrs: {
-      "src": "/static/demo/4.jpg"
-    }
-  })])
-}]
+var staticRenderFns = []
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -560,4 +561,4 @@ if (false) {
 }
 
 /***/ })
-],[12]);
+],[13]);

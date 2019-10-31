@@ -108,7 +108,7 @@
       </van-collapse-item>
     </van-collapse>
     <view class="_div data-v-10363b9f">
-      <van-submit-bar price="{{3050}}" button-text="微信支付" bind:submit="onClickButton" tip="{{true}}" class="_van-submit-bar data-v-10363b9f"></van-submit-bar>
+      <van-submit-bar price="{{3050}}" button-text="微信支付" bindsubmit="handleProxy" tip="{{true}}" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_van-submit-bar data-v-10363b9f"></van-submit-bar>
     </view>
   </view>
 </template>

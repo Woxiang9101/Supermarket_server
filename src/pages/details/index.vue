@@ -1,33 +1,47 @@
 <template>
   <div>
 
-<!--    顶部swiper轮播图-->
-    <swiper class="swiper" indicator-dots="true" >
-      <swiper-item><img class="swiperItem" src="/static/demo/1.jpg" alt=""></swiper-item>
-      <swiper-item><img class="swiperItem" src="/static/demo/2.jpg" alt=""></swiper-item>
-      <swiper-item><img class="swiperItem" src="/static/demo/3.jpg" alt=""></swiper-item>
-      <swiper-item><img class="swiperItem" src="/static/demo/4.jpg" alt=""></swiper-item>
+
+    <!--顶部swiper轮播图-->
+    <swiper class="swiper" indicator-dots="true"
+            :style="{height: scrWidth/detailJson.BIratio + 'px'}">
+      <swiper-item v-for="(item,index) in detailJson.BIs" wx:key="index" :key="index">
+        <img class="swiperItem"
+             :src="URL + '/products/' + detailJson.ID +'/BI/' + item" alt="">
+      </swiper-item>
     </swiper>
-<!--    价格-->
+
+    <!--    价格-->
     <div class="priceText">
-      <p class="price">￥368</p><span class="orprice">原价￥450.52</span>
+      <p class="price">￥{{detailJson.Price}}</p>
+      <span class="orprice" v-if="detailJson.orprice">原价￥{{detailJson.orprice}}</span>
     </div>
 
-<!--    标题-->
-    <h1 class="title">&nbsp;&nbsp;&nbsp;&nbsp;法式婚纱2019新款新娘森系超仙梦幻女小个子
-      拖尾简单显瘦礼服</h1>
+    <!--    标题-->
+    <h1 class="title">&nbsp;&nbsp;&nbsp;&nbsp;{{detailJson.Name}}</h1>
 
-<!--    功能区-->
-    <van-tag class="tag" round type="primary">可配送港澳</van-tag>
-    <van-tag class="tag" round type="success">库存充足</van-tag>
-    <van-tag class="tag" round type="danger">7天无理由退货</van-tag>
-    <van-tag class="tag" round type="warning">精准达</van-tag>
+    <!--    标签-->
+    <div>
+      <div class="tag" v-if="detailJson.tags"
+           v-for="(item,index) in detailJson.tags"
+           wx:key="index" :key="index">
+        <van-tag  round v-if="index%4===0" type="primary">{{item}}</van-tag>
+        <van-tag  round v-if="index%4===1" type="success">{{item}}</van-tag>
+        <van-tag  round v-if="index%4===2" type="danger">{{item}}</van-tag>
+        <van-tag  round v-if="index%4===3" type="warning">{{item}}</van-tag>
+      </div>
+    </div>
+
+    <!--    滚动通告栏-->
     <div class="noticeBar">
       <van-notice-bar
-        left-icon="https://img.yzcdn.cn/1.png"
-        text="促销:购买一件可优惠换购热销商品,促销:购买一件可优惠换购热销商品,促销:购买一件可优惠换购热销商品重要的事情说三遍！！！"
+        v-if="detailJson.tip"
+        left-icon="http://192.168.0.110:5000/icon/喇叭.png"
+        :text="detailJson.tip"
       />
     </div>
+
+<!--    选择商品-->
     <van-cell title="请选择"  value="请选择商品类型和数量"
               v-bind:center="true" :clickable="false" arrow-direction="down" />
     <view class="select">
@@ -35,15 +49,50 @@
         <p class="selText">已选</p> <p class="selectedInfo">480g*24整箱装</p>
       </div>
 
+<!--      原product-->
+<!--      <div class="product">-->
+<!--        <p class="selText chanpin">产品</p>-->
+<!--        <div class="proType">-->
+<!--          <div v-for="(item,index) in detailJson.TypeandPrice"-->
+<!--             wx:key="index" :key="index"-->
+<!--             @click="tagSelect(event,index)"-->
+<!--             :class="tagSelected == 1?'proTagSelected':'proTag'">-->
+<!--            {{item[0]}}-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+
       <div class="product">
         <p class="selText chanpin">产品</p>
         <div class="proType">
-          <p class="proTag">500g</p>
-          <p class="proTag">50000g</p>
-          <p class="proTag">48瓶每箱</p>
+<!--          <div v-for="(item,index) in detailJson.TypeandPrice"-->
+<!--               wx:key="index" :key="index"-->
+<!--               @click="tagSelect(event,index)"-->
+<!--               :class="tagSelected == 1?'proTagSelected':'proTag'">-->
+<!--            {{item[0]}}-->
+<!--          </div>-->
+
+
+          <div @click="selTest(event,1)" class="blue">1111111</div>
+          <div @click="selTest(event,2)"
+               :class="(sTest ==2) ? 'blue':'' ">2222222</div>
+          <div @click="selTest(event,3)"
+               :class="this.sTest == 3 ? 'blue':'null' ">3333333</div>
+
+          <div v-for="(item,index) in detailJson.TypeandPrice"
+               wx:key="index" :key="index"
+               @click="selTest(event,index)"
+          :class="sTest == index ? 'blue':'null' ">{{item}}</div>
 
         </div>
       </div>
+
+
+
+
+
+
 
       <div class="mount">
         <p class="selText">数量</p>
@@ -54,7 +103,7 @@
     </view>
 
 
-<!--    //商品参数弹出-->
+    <!--    //商品参数弹出-->
     <van-cell title="商品参数" is-link @click="showPopup" />
     <van-popup
       :show="show"
@@ -63,63 +112,25 @@
       @close="onClose"
     >
       <div class="chart">
-        <div class="chartLine">
-          <div class="proName">属性名</div>
-          <div class="proValue">属性值</div>
-        </div>
-        <div class="chartLine">
-          <div class="proName">大小</div>
-          <div class="proValue">50码</div>
-        </div>
-        <div class="chartLine">
-          <div class="proName">材质</div>
-          <div class="proValue">牛津布</div>
-        </div>
-        <div class="chartLine">
-          <div class="proName">适用性别</div>
-          <div class="proValue">男女均可</div>
-        </div>
-        <div class="chartLine">
-          <div class="proName">透气性能</div>
-          <div class="proValue">良好</div>
-        </div>
-        <div class="chartLine">
-          <div class="proName">属性名</div>
-          <div class="proValue">属性值</div>
-        </div>
-        <div class="chartLine">
-          <div class="proName">大小</div>
-          <div class="proValue">50码</div>
-        </div>
-        <div class="chartLine">
-          <div class="proName">材质</div>
-          <div class="proValue">牛津布</div>
-        </div>
-        <div class="chartLine">
-          <div class="proName">适用性别</div>
-          <div class="proValue">男女均可</div>
-        </div>
-        <div class="chartLine">
-          <div class="proName">透气性能</div>
-          <div class="proValue">良好</div>
+        <div class="chartLine" v-for="(item,index) in detailJson.Paras" wx:key="index">
+          <div class="proName">{{item[0]}}</div>
+          <div class="proValue">{{item[1]}}</div>
         </div>
       </div>
     </van-popup>
 
-<!--    //商品详情小字-->
+    <!--    //商品详情小字-->
     <div class="detailText">
       <van-tag class="detailTag" round type="primary">商品详情</van-tag>
     </div>
 
 
-<!--    详情图片box-->
+    <!--    详情图片box-->
     <div class="imgBox">
-      <img class="detailImg" src="/static/demo/1.jpg" />
-      <img class="detailImg" src="/static/demo/2.jpg" />
-      <img class="detailImg" src="/static/demo/3.jpg" />
-      <img class="detailImg" src="/static/demo/4.jpg" />
+      <img class="detailImg"  v-for="(item,index) in detailJson.DIs" wx:key="index"
+           :src="URL + '/products/' + detailJson.ID +'/DI/' + item.name"
+           :style="{height: scrWidth/item.ratio + 'px'}" />
     </div>
-
 
 <!--    底部购物功能区-->
     <van-goods-action >
@@ -136,46 +147,78 @@
 
 
 <script>
-
   export default {
-    data() {
-      return {
-        show: false,
-      }
-    },
-    methods:{
-      showPopup: function(){
-        this.show = true;
-      },
-      onClose() {
-        this.show = false;
-      },
-      toCart: () => {
-        console.log('点击了一下下')
-        console.log(wx)
-        wx.navigateTo({
-          url: '/pages/cart/main',
+
+    created:function(){
+        this.scrWidth = wx.getSystemInfoSync().windowWidth;
+        wx.request({
+            url: 'http://192.168.0.110:5000/getproduct?ID=201616060301',
+            success: (res)=> {
+                console.log('【发起网络请求成功！】',res.data);
+                this.detailJson = res.data;
+                this.swiWidth = this.scrWidth / this.detailJson.BIratio;
+            }
         })
-      }
+    },
+
+    data:{
+        scrWidth:20,//屏幕原始尺寸
+        URL:'http://192.168.0.110:5000/',
+        show: false,//产品参数是否显示
+        detailJson:666,//产品完整Json数据
+        tagSelected:2,
+        sTest:666,
+    },
+
+    methods: {
+        showPopup: function () {
+            this.show = true;
+        },
+        onClose: function () {
+            this.show = false;
+            console.log(this.detailJson);
+            console.log(this.scrWidth / this.detailJson.BIratio);
+        },
+        toCart: () => {
+            console.log('点击了一下下')
+            console.log(wx)
+            wx.navigateTo({
+                url: '/pages/cart/main',
+            })
+        },
+        tagSelect: (event,i) => {
+            console.log('点击了一下');
+            console.log(i);
+            this.tagSelected = i;
+            console.log('当前tagSelected：', this.tagSelected);
+        },
+        selTest:(event,i)=>{
+            this.sTest = i;
+            console.log('test点击事件',this.sTest);
+        }
     }
-   ,
 
   }
 </script>
 
 <style>
+
+  .blue{
+    color:blue;
+  }
+
   page{
     margin: 0;
     padding: 0;
   }
   .swiper{
     width: 100%;
-    height: 740rpx;
-    background-color: burlywood;
+    /*height: 740rpx;*/
+    /*background-color: burlywood;*/
     position: relative;
   }
   .swiperItem{
-    width: 100%;
+    width: 375px;
     height: 100%;
   }
   .priceText{
@@ -202,6 +245,7 @@
   }
   .tag{
     margin: 10rpx;
+    display: inline-block;
   }
   .select{
     margin: 0 auto;
@@ -248,12 +292,27 @@
   }
   .proTag{
     padding: 5rpx;
+    padding-left: 15rpx;
+    padding-right: 15rpx;
     display: inline-block;
     border-radius: 5rpx;
-    /*background-color: #c7c7c7;*/
+    /*background-color: #07c160;*/
     border: 1px solid rgba(154, 154, 154, 0.71);
     margin: 10rpx;
     font-size: 25rpx;
+  }
+  .proTagSelected{
+    padding: 5rpx;
+    padding-left: 15rpx;
+    padding-right: 15rpx;
+    display: inline-block;
+    border-radius: 5rpx;
+    /*background-color: #07c160;*/
+    border: 1px solid rgba(154, 154, 154, 0.71);
+    margin: 10rpx;
+    font-size: 25rpx;
+    background-color: #07c160;
+    color:white;
   }
   .mount{
     height: 70rpx;
@@ -273,7 +332,7 @@
   }
   .detailImg{
     width: 100%;
-    height: 740rpx;
+    /*height: 740rpx;*/
     margin: 0;
     padding: 0;
     display: block;
@@ -281,7 +340,6 @@
   .lastTip{
     width: 100%;
     height: 96rpx;
-    background-color: #aaaaaa;
     text-align: center;
   }
   .chart{
@@ -312,6 +370,8 @@
     border-bottom: none;
     border-left: none;
     border-top: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .proValue{
     width: 60%;
@@ -320,6 +380,8 @@
     display: inline-block;
     text-align: left;
     padding-left: 20rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
     /*background-color: darkslategray;*/
   }
   .noticeBar{

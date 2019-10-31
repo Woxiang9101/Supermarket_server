@@ -1,15 +1,15 @@
 require("../../common/manifest.js")
 require("../../common/vendor.js")
-global.webpackJsonpMpvue([3],{
+global.webpackJsonpMpvue([1],{
 
-/***/ 22:
+/***/ 23:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(24);
 
 
 
@@ -24,16 +24,16 @@ app.$mount();
 
 /***/ }),
 
-/***/ 23:
+/***/ 24:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_template_compiler_index_id_data_v_10363b9f_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_template_compiler_index_id_data_v_10363b9f_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(28);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(24)
+  __webpack_require__(25)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -78,7 +78,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 24:
+/***/ 25:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -89,7 +89,7 @@ if (false) {(function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__area__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__area__ = __webpack_require__(27);
 //
 //
 //
@@ -381,6 +381,14 @@ if (false) {(function () {
       } else {
         this.activeNames = ['cardList'];
       }
+    },
+    onClickButton: function onClickButton() {
+      wx.request({
+        url: 'http://192.168.0.110:5000', //仅为示例，并非真实的接口地址
+        success: function success(res) {
+          console.log(res.data);
+        }
+      });
     }
   }
 
@@ -389,309 +397,6 @@ if (false) {(function () {
 /***/ }),
 
 /***/ 27:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('van-cell', {
-    attrs: {
-      "title": "订单编号",
-      "value": "201901546231346522",
-      "mpcomid": '0'
-    }
-  }), _vm._v(" "), _c('van-cell', {
-    attrs: {
-      "title": "创建日期",
-      "value": "2018-10-19 14:58:26",
-      "mpcomid": '1'
-    }
-  }), _vm._v(" "), _c('van-cell-group', {
-    attrs: {
-      "mpcomid": '9'
-    }
-  }, [_c('van-field', {
-    attrs: {
-      "value": _vm.username,
-      "label": "收货人姓名",
-      "placeholder": "请输入姓名",
-      "mpcomid": '2'
-    }
-  }), _vm._v(" "), _c('van-field', {
-    attrs: {
-      "value": _vm.phone,
-      "label": "手机号",
-      "placeholder": "请输入手机号",
-      "error-message": "手机号格式错误",
-      "mpcomid": '3'
-    }
-  }), _vm._v(" "), _c('van-cell', {
-    attrs: {
-      "title": "选择收货地址",
-      "is-link": "",
-      "eventid": '0',
-      "mpcomid": '4'
-    },
-    on: {
-      "click": _vm.showPopup
-    }
-  }), _vm._v(" "), _c('van-popup', {
-    attrs: {
-      "show": _vm.show,
-      "closeable": "",
-      "position": "bottom",
-      "custom-style": "height: 40%",
-      "eventid": '1',
-      "mpcomid": '6'
-    },
-    on: {
-      "close": _vm.onClose
-    }
-  }, [_c('van-area', {
-    attrs: {
-      "area-list": _vm.areaList,
-      "mpcomid": '5'
-    }
-  })], 1), _vm._v(" "), _c('van-field', {
-    attrs: {
-      "value": _vm.message,
-      "label": "详细地址",
-      "type": "textarea",
-      "placeholder": "请输入详细地址",
-      "autosize": "",
-      "mpcomid": '7'
-    }
-  }), _vm._v(" "), _c('van-field', {
-    attrs: {
-      "value": _vm.message,
-      "label": "留言",
-      "type": "textarea",
-      "placeholder": "给店主留言",
-      "autosize": "",
-      "mpcomid": '8'
-    }
-  })], 1), _vm._v(" "), _c('van-collapse', {
-    attrs: {
-      "value": _vm.activeNames,
-      "clickable": true,
-      "border": false,
-      "eventid": '2',
-      "mpcomid": '21'
-    },
-    on: {
-      "change": _vm.onChangeColl
-    }
-  }, [_c('van-collapse-item', {
-    attrs: {
-      "title": "详情",
-      "name": "cardList",
-      "mpcomid": '20'
-    }
-  }, [_c('div', {
-    staticClass: "card"
-  }, [_c('div', {
-    staticClass: "product"
-  }, [_c('van-card', {
-    attrs: {
-      "tag": "新年新气象",
-      "price": "10.00",
-      "origin-price": "20.00",
-      "title": "枝胡原木抽纸3层24包正向之母",
-      "desc": "枝胡原木抽纸3层24包正向",
-      "thumb": _vm.imageURL,
-      "mpcomid": '10'
-    }
-  }, [_c('view', {
-    slot: "bottom"
-  }, [_c('div', {
-    staticClass: "number"
-  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "card"
-  }, [_c('div', {
-    staticClass: "product"
-  }, [_c('van-card', {
-    attrs: {
-      "tag": "New",
-      "price": "10.00",
-      "origin-price": "20.00",
-      "title": "枝胡原木抽纸3层24包正向之母",
-      "desc": "枝胡原木抽纸3层24包正向",
-      "thumb": _vm.imageURL,
-      "mpcomid": '11'
-    }
-  }, [_c('view', {
-    slot: "bottom"
-  }, [_c('div', {
-    staticClass: "number"
-  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "card"
-  }, [_c('div', {
-    staticClass: "product"
-  }, [_c('van-card', {
-    attrs: {
-      "tag": "New",
-      "price": "10.00",
-      "origin-price": "20.00",
-      "title": "枝胡原木抽纸3层24包正向之母",
-      "desc": "枝胡原木抽纸3层24包正向",
-      "thumb": _vm.imageURL,
-      "mpcomid": '12'
-    }
-  }, [_c('view', {
-    slot: "bottom"
-  }, [_c('div', {
-    staticClass: "number"
-  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "card"
-  }, [_c('div', {
-    staticClass: "product"
-  }, [_c('van-card', {
-    attrs: {
-      "tag": "New",
-      "price": "10.00",
-      "origin-price": "20.00",
-      "title": "枝胡原木抽纸3层24包正向之母",
-      "desc": "枝胡原木抽纸3层24包正向",
-      "thumb": _vm.imageURL,
-      "mpcomid": '13'
-    }
-  }, [_c('view', {
-    slot: "bottom"
-  }, [_c('div', {
-    staticClass: "number"
-  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "card"
-  }, [_c('div', {
-    staticClass: "product"
-  }, [_c('van-card', {
-    attrs: {
-      "tag": "New",
-      "price": "10.00",
-      "origin-price": "20.00",
-      "title": "枝胡原木抽纸3层24包正向之母",
-      "desc": "枝胡原木抽纸3层24包正向",
-      "thumb": _vm.imageURL,
-      "mpcomid": '14'
-    }
-  }, [_c('view', {
-    slot: "bottom"
-  }, [_c('div', {
-    staticClass: "number"
-  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "card"
-  }, [_c('div', {
-    staticClass: "product"
-  }, [_c('van-card', {
-    attrs: {
-      "tag": "New",
-      "price": "10.00",
-      "origin-price": "20.00",
-      "title": "枝胡原木抽纸3层24包正向之母",
-      "desc": "枝胡原木抽纸3层24包正向",
-      "thumb": _vm.imageURL,
-      "mpcomid": '15'
-    }
-  }, [_c('view', {
-    slot: "bottom"
-  }, [_c('div', {
-    staticClass: "number"
-  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "card"
-  }, [_c('div', {
-    staticClass: "product"
-  }, [_c('van-card', {
-    attrs: {
-      "tag": "New",
-      "price": "10.00",
-      "origin-price": "20.00",
-      "title": "枝胡原木抽纸3层24包正向之母",
-      "desc": "枝胡原木抽纸3层24包正向",
-      "thumb": _vm.imageURL,
-      "mpcomid": '16'
-    }
-  }, [_c('view', {
-    slot: "bottom"
-  }, [_c('div', {
-    staticClass: "number"
-  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "card"
-  }, [_c('div', {
-    staticClass: "product"
-  }, [_c('van-card', {
-    attrs: {
-      "tag": "New",
-      "price": "10.00",
-      "origin-price": "20.00",
-      "title": "枝胡原木抽纸3层24包正向之母",
-      "desc": "枝胡原木抽纸3层24包正向",
-      "thumb": _vm.imageURL,
-      "mpcomid": '17'
-    }
-  }, [_c('view', {
-    slot: "bottom"
-  }, [_c('div', {
-    staticClass: "number"
-  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "card"
-  }, [_c('div', {
-    staticClass: "product"
-  }, [_c('van-card', {
-    attrs: {
-      "tag": "New",
-      "price": "10.00",
-      "origin-price": "20.00",
-      "title": "枝胡原木抽纸3层24包正向之母",
-      "desc": "枝胡原木抽纸3层24包正向",
-      "thumb": _vm.imageURL,
-      "mpcomid": '18'
-    }
-  }, [_c('view', {
-    slot: "bottom"
-  }, [_c('div', {
-    staticClass: "number"
-  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "card"
-  }, [_c('div', {
-    staticClass: "product"
-  }, [_c('van-card', {
-    attrs: {
-      "tag": "New",
-      "price": "10.00",
-      "origin-price": "20.00",
-      "title": "枝胡原木抽纸3层24包正向之母",
-      "desc": "枝胡原木抽纸3层24包正向",
-      "thumb": _vm.imageURL,
-      "mpcomid": '19'
-    }
-  }, [_c('view', {
-    slot: "bottom"
-  }, [_c('div', {
-    staticClass: "number"
-  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "footSpace"
-  })])], 1), _vm._v(" "), _c('div', [_c('van-submit-bar', {
-    attrs: {
-      "price": 3050,
-      "button-text": "微信支付",
-      "bind:submit": "onClickButton",
-      "tip": true,
-      "mpcomid": '22'
-    }
-  })], 1)], 1)
-}
-var staticRenderFns = []
-render._withStripped = true
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-10363b9f", esExports)
-  }
-}
-
-/***/ }),
-
-/***/ 41:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4736,6 +4441,312 @@ if (false) {
   }
 });
 
+/***/ }),
+
+/***/ 28:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('van-cell', {
+    attrs: {
+      "title": "订单编号",
+      "value": "201901546231346522",
+      "mpcomid": '0'
+    }
+  }), _vm._v(" "), _c('van-cell', {
+    attrs: {
+      "title": "创建日期",
+      "value": "2018-10-19 14:58:26",
+      "mpcomid": '1'
+    }
+  }), _vm._v(" "), _c('van-cell-group', {
+    attrs: {
+      "mpcomid": '9'
+    }
+  }, [_c('van-field', {
+    attrs: {
+      "value": _vm.username,
+      "label": "收货人姓名",
+      "placeholder": "请输入姓名",
+      "mpcomid": '2'
+    }
+  }), _vm._v(" "), _c('van-field', {
+    attrs: {
+      "value": _vm.phone,
+      "label": "手机号",
+      "placeholder": "请输入手机号",
+      "error-message": "手机号格式错误",
+      "mpcomid": '3'
+    }
+  }), _vm._v(" "), _c('van-cell', {
+    attrs: {
+      "title": "选择收货地址",
+      "is-link": "",
+      "eventid": '0',
+      "mpcomid": '4'
+    },
+    on: {
+      "click": _vm.showPopup
+    }
+  }), _vm._v(" "), _c('van-popup', {
+    attrs: {
+      "show": _vm.show,
+      "closeable": "",
+      "position": "bottom",
+      "custom-style": "height: 40%",
+      "eventid": '1',
+      "mpcomid": '6'
+    },
+    on: {
+      "close": _vm.onClose
+    }
+  }, [_c('van-area', {
+    attrs: {
+      "area-list": _vm.areaList,
+      "mpcomid": '5'
+    }
+  })], 1), _vm._v(" "), _c('van-field', {
+    attrs: {
+      "value": _vm.message,
+      "label": "详细地址",
+      "type": "textarea",
+      "placeholder": "请输入详细地址",
+      "autosize": "",
+      "mpcomid": '7'
+    }
+  }), _vm._v(" "), _c('van-field', {
+    attrs: {
+      "value": _vm.message,
+      "label": "留言",
+      "type": "textarea",
+      "placeholder": "给店主留言",
+      "autosize": "",
+      "mpcomid": '8'
+    }
+  })], 1), _vm._v(" "), _c('van-collapse', {
+    attrs: {
+      "value": _vm.activeNames,
+      "clickable": true,
+      "border": false,
+      "eventid": '2',
+      "mpcomid": '21'
+    },
+    on: {
+      "change": _vm.onChangeColl
+    }
+  }, [_c('van-collapse-item', {
+    attrs: {
+      "title": "详情",
+      "name": "cardList",
+      "mpcomid": '20'
+    }
+  }, [_c('div', {
+    staticClass: "card"
+  }, [_c('div', {
+    staticClass: "product"
+  }, [_c('van-card', {
+    attrs: {
+      "tag": "新年新气象",
+      "price": "10.00",
+      "origin-price": "20.00",
+      "title": "枝胡原木抽纸3层24包正向之母",
+      "desc": "枝胡原木抽纸3层24包正向",
+      "thumb": _vm.imageURL,
+      "mpcomid": '10'
+    }
+  }, [_c('view', {
+    slot: "bottom"
+  }, [_c('div', {
+    staticClass: "number"
+  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
+    staticClass: "card"
+  }, [_c('div', {
+    staticClass: "product"
+  }, [_c('van-card', {
+    attrs: {
+      "tag": "New",
+      "price": "10.00",
+      "origin-price": "20.00",
+      "title": "枝胡原木抽纸3层24包正向之母",
+      "desc": "枝胡原木抽纸3层24包正向",
+      "thumb": _vm.imageURL,
+      "mpcomid": '11'
+    }
+  }, [_c('view', {
+    slot: "bottom"
+  }, [_c('div', {
+    staticClass: "number"
+  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
+    staticClass: "card"
+  }, [_c('div', {
+    staticClass: "product"
+  }, [_c('van-card', {
+    attrs: {
+      "tag": "New",
+      "price": "10.00",
+      "origin-price": "20.00",
+      "title": "枝胡原木抽纸3层24包正向之母",
+      "desc": "枝胡原木抽纸3层24包正向",
+      "thumb": _vm.imageURL,
+      "mpcomid": '12'
+    }
+  }, [_c('view', {
+    slot: "bottom"
+  }, [_c('div', {
+    staticClass: "number"
+  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
+    staticClass: "card"
+  }, [_c('div', {
+    staticClass: "product"
+  }, [_c('van-card', {
+    attrs: {
+      "tag": "New",
+      "price": "10.00",
+      "origin-price": "20.00",
+      "title": "枝胡原木抽纸3层24包正向之母",
+      "desc": "枝胡原木抽纸3层24包正向",
+      "thumb": _vm.imageURL,
+      "mpcomid": '13'
+    }
+  }, [_c('view', {
+    slot: "bottom"
+  }, [_c('div', {
+    staticClass: "number"
+  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
+    staticClass: "card"
+  }, [_c('div', {
+    staticClass: "product"
+  }, [_c('van-card', {
+    attrs: {
+      "tag": "New",
+      "price": "10.00",
+      "origin-price": "20.00",
+      "title": "枝胡原木抽纸3层24包正向之母",
+      "desc": "枝胡原木抽纸3层24包正向",
+      "thumb": _vm.imageURL,
+      "mpcomid": '14'
+    }
+  }, [_c('view', {
+    slot: "bottom"
+  }, [_c('div', {
+    staticClass: "number"
+  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
+    staticClass: "card"
+  }, [_c('div', {
+    staticClass: "product"
+  }, [_c('van-card', {
+    attrs: {
+      "tag": "New",
+      "price": "10.00",
+      "origin-price": "20.00",
+      "title": "枝胡原木抽纸3层24包正向之母",
+      "desc": "枝胡原木抽纸3层24包正向",
+      "thumb": _vm.imageURL,
+      "mpcomid": '15'
+    }
+  }, [_c('view', {
+    slot: "bottom"
+  }, [_c('div', {
+    staticClass: "number"
+  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
+    staticClass: "card"
+  }, [_c('div', {
+    staticClass: "product"
+  }, [_c('van-card', {
+    attrs: {
+      "tag": "New",
+      "price": "10.00",
+      "origin-price": "20.00",
+      "title": "枝胡原木抽纸3层24包正向之母",
+      "desc": "枝胡原木抽纸3层24包正向",
+      "thumb": _vm.imageURL,
+      "mpcomid": '16'
+    }
+  }, [_c('view', {
+    slot: "bottom"
+  }, [_c('div', {
+    staticClass: "number"
+  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
+    staticClass: "card"
+  }, [_c('div', {
+    staticClass: "product"
+  }, [_c('van-card', {
+    attrs: {
+      "tag": "New",
+      "price": "10.00",
+      "origin-price": "20.00",
+      "title": "枝胡原木抽纸3层24包正向之母",
+      "desc": "枝胡原木抽纸3层24包正向",
+      "thumb": _vm.imageURL,
+      "mpcomid": '17'
+    }
+  }, [_c('view', {
+    slot: "bottom"
+  }, [_c('div', {
+    staticClass: "number"
+  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
+    staticClass: "card"
+  }, [_c('div', {
+    staticClass: "product"
+  }, [_c('van-card', {
+    attrs: {
+      "tag": "New",
+      "price": "10.00",
+      "origin-price": "20.00",
+      "title": "枝胡原木抽纸3层24包正向之母",
+      "desc": "枝胡原木抽纸3层24包正向",
+      "thumb": _vm.imageURL,
+      "mpcomid": '18'
+    }
+  }, [_c('view', {
+    slot: "bottom"
+  }, [_c('div', {
+    staticClass: "number"
+  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
+    staticClass: "card"
+  }, [_c('div', {
+    staticClass: "product"
+  }, [_c('van-card', {
+    attrs: {
+      "tag": "New",
+      "price": "10.00",
+      "origin-price": "20.00",
+      "title": "枝胡原木抽纸3层24包正向之母",
+      "desc": "枝胡原木抽纸3层24包正向",
+      "thumb": _vm.imageURL,
+      "mpcomid": '19'
+    }
+  }, [_c('view', {
+    slot: "bottom"
+  }, [_c('div', {
+    staticClass: "number"
+  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
+    staticClass: "footSpace"
+  })])], 1), _vm._v(" "), _c('div', [_c('van-submit-bar', {
+    attrs: {
+      "price": 3050,
+      "button-text": "微信支付",
+      "tip": true,
+      "eventid": '3',
+      "mpcomid": '22'
+    },
+    on: {
+      "submit": _vm.onClickButton
+    }
+  })], 1)], 1)
+}
+var staticRenderFns = []
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-10363b9f", esExports)
+  }
+}
+
 /***/ })
 
-},[22]);
+},[23]);

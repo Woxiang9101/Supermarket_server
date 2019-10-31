@@ -1,16 +1,17 @@
 
+.blue {
+  color: blue;
+}
 page {
   margin: 0;
   padding: 0;
 }
 .swiper {
   width: 100%;
-  height: 740rpx;
-  background-color: burlywood;
   position: relative;
 }
 .swiperItem {
-  width: 100%;
+  width: 750rpx;
   height: 100%;
 }
 .priceText {
@@ -36,6 +37,7 @@ page {
 }
 .tag {
   margin: 10rpx;
+  display: inline-block;
 }
 .select {
   margin: 0 auto;
@@ -69,11 +71,25 @@ page {
 }
 .proTag {
   padding: 5rpx;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
   display: inline-block;
   border-radius: 5rpx;
   border: 2rpx solid rgba(154, 154, 154, 0.71);
   margin: 10rpx;
   font-size: 25rpx;
+}
+.proTagSelected {
+  padding: 5rpx;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  display: inline-block;
+  border-radius: 5rpx;
+  border: 2rpx solid rgba(154, 154, 154, 0.71);
+  margin: 10rpx;
+  font-size: 25rpx;
+  background-color: #07c160;
+  color: white;
 }
 .mount {
   height: 70rpx;
@@ -92,7 +108,6 @@ page {
 }
 .detailImg {
   width: 100%;
-  height: 740rpx;
   margin: 0;
   padding: 0;
   display: block;
@@ -100,7 +115,6 @@ page {
 .lastTip {
   width: 100%;
   height: 96rpx;
-  background-color: #aaaaaa;
   text-align: center;
 }
 .chart {
@@ -129,6 +143,8 @@ page {
   border-bottom: none;
   border-left: none;
   border-top: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .proValue {
   width: 60%;
@@ -137,6 +153,8 @@ page {
   display: inline-block;
   text-align: left;
   padding-left: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .noticeBar {
   margin-top: 10rpx;

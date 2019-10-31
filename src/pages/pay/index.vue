@@ -242,7 +242,7 @@
       <van-submit-bar
         :price="3050"
         button-text="微信支付"
-        bind:submit="onClickButton"
+        @submit="onClickButton"
         :tip="true"
       >
 
@@ -289,7 +289,15 @@
         } else {
           this.activeNames = ['cardList']
         }
-      }
+      },
+      onClickButton:function() {
+          wx.request({
+              url: 'http://192.168.0.110:5000', //仅为示例，并非真实的接口地址
+              success (res) {
+                  console.log(res.data)
+              }
+          })
+      },
     },
 
   }
