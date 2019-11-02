@@ -2,7 +2,7 @@
   <view class="_div data-v-2cef4042">
     <view class="_div data-v-2cef4042 card" wx:key="index" wx:for="{{ALL}}" wx:for-index="index" wx:for-item="item">
       <view class="_div data-v-2cef4042 checkBox">
-        <van-checkbox class="_van-checkbox data-v-2cef4042 checkBoxContent" value="{{allCheck}}" bindchange="handleProxy" data-eventid="{{'0_'+index}}" data-comkey="{{$k}}"></van-checkbox>
+        <van-checkbox class="_van-checkbox data-v-2cef4042 checkBoxContent" value="{{checkArray[index]}}" bindchange="handleProxy" data-eventid="{{'0_'+index}}" data-comkey="{{$k}}"></van-checkbox>
       </view>
       <view class="_div data-v-2cef4042 product">
         <van-card tag="{{index===ALL.length - 1 ? 'New':''}}" price="{{item.TPrice}}" origin-price="{{item.TOrPrice}}" title="{{item.Name}}" desc="{{item.TypeName}}" thumb="{{URL + '/products/' + item.ID +'/BI/' + item.Img}}" class="_van-card data-v-2cef4042">
@@ -15,7 +15,7 @@
       </view>
     </view>
     <view class="_div data-v-2cef4042">
-      <van-submit-bar price="{{3050}}" button-text="提交订单" bind:submit="onClickButton" tip="{{true}}" bindsubmit="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_van-submit-bar data-v-2cef4042">
+      <van-submit-bar price="{{allPrice}}" button-text="提交订单" bind:submit="onClickButton" tip="{{true}}" bindsubmit="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_van-submit-bar data-v-2cef4042">
         <view class="_div data-v-2cef4042 allcheckBox">
           <van-checkbox value="{{allCheck}}" bindchange="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_van-checkbox data-v-2cef4042">全选</van-checkbox>
         </view>

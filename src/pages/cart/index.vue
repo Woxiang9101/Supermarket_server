@@ -4,7 +4,9 @@
     <div class="card" v-for="(item,index) in ALL" wx:key="index">
 
       <div class="checkBox">
-        <van-checkbox class='checkBoxContent' :value="allCheck" @change="onChange"></van-checkbox>
+        <van-checkbox class='checkBoxContent'
+                      :value="checkArray[index]"
+                      @change="checkSingle(index)"></van-checkbox>
       </div>
 
       <div class="product">
@@ -30,14 +32,15 @@
     <!--    //底部-->
     <div>
       <van-submit-bar
-        :price="3050"
+        :price="allPrice"
         button-text="提交订单"
         bind:submit="onClickButton"
         :tip="true"
         @submit="toPay"
       >
         <div class="allcheckBox">
-          <van-checkbox :value="allCheck" @change="onChange">全选</van-checkbox>
+          <van-checkbox :value="allCheck"
+                        @change="checkAll">全选</van-checkbox>
         </div>
       </van-submit-bar>
     </div>
@@ -55,13 +58,18 @@
 
   export default {
       onLoad:function(){
+          this.checkArray = [];
           this.ALL = this.$store.state.cart;
+          for (let i=0;i<this.ALL.length;i++){
+              this.checkArray.push(true);
+          }
           console.log(this.ALL);
       },
     data () {
       return {
           URL:'http://192.168.0.110:5000/',
           ALL:null,
+          checkArray:[],
         allCheck: true,
         imageURL: 'https://img.yzcdn.cn/vant/t-thirt.jpg'
       }
@@ -90,14 +98,40 @@
           if (mount===0){
               Dialog.confirm({
                   title: '确认删除？',
-                  message: '当前商品总数已为 0 , 是否删除此项？'
+                  message: '当前商品数量已为 0 , 是否删除此项？'
               }).then(() => {
                   console.log('点击了确认');
+                  this.ALL.splice(index,1);
               }).catch(() => {
                   console.log('点击了取消');
               });
           }
+      },
+      checkSingle:function(index){
+          this.checkArray.splice(index,1,!this.checkArray[index]);
+          if(this.checkArray.indexOf(false) === -1){
+              this.allCheck = true;
+          }else{
+              this.allCheck = false;
+          }
+      },
+      checkAll:function () {
+          for (let i=0;i<this.ALL.length;i++){
+              this.checkArray[i] = !this.allCheck;
+          }
+          this.allCheck = !this.allCheck;
       }
+    },
+    computed: {
+        allPrice: function () {
+            let all = 0;
+            this.ALL.forEach((item,index)=>{
+                if (this.checkArray[index] === true){
+                    all += item.TPrice;
+                }
+            })
+            return all*100;
+        }
     },
 
   }

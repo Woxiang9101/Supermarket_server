@@ -142,56 +142,94 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-  onLoad: function onLoad() {
-    this.ALL = this.$store.state.cart;
-    console.log(this.ALL);
-  },
-  data: function data() {
-    return {
-      URL: 'http://192.168.0.110:5000/',
-      ALL: null,
-      allCheck: true,
-      imageURL: 'https://img.yzcdn.cn/vant/t-thirt.jpg'
-    };
-  },
-
-  methods: {
-    onChange: function onChange(event) {
-      console.log(this.allCheck);
-      this.allCheck = !this.allCheck;
+    onLoad: function onLoad() {
+        this.checkArray = [];
+        this.ALL = this.$store.state.cart;
+        for (var i = 0; i < this.ALL.length; i++) {
+            this.checkArray.push(true);
+        }
+        console.log(this.ALL);
     },
-    toPay: function toPay() {
-      console.log('点击了一下下');
-      console.log(wx);
-      wx.navigateTo({
-        url: '/pages/pay/main'
-      });
+    data: function data() {
+        return {
+            URL: 'http://192.168.0.110:5000/',
+            ALL: null,
+            checkArray: [],
+            allCheck: true,
+            imageURL: 'https://img.yzcdn.cn/vant/t-thirt.jpg'
+        };
     },
-    stepChange: function stepChange(event, index) {
-      console.log(this.ALL);
-      var mount = event.mp.detail;
-      this.ALL[index].TPrice = mount * this.ALL[index].TypeSinglePrice;
-      this.ALL[index].TOrPrice = mount * this.ALL[index].TypeOrSinglePrice;
-      this.ALL[index].Mount = mount;
-      console.log('步数改变');
-      console.log(event);
 
-      if (mount === 0) {
-        __WEBPACK_IMPORTED_MODULE_0__dist_wx_components_vant_weapp_dist_dialog_dialog__["a" /* default */].confirm({
-          title: '确认删除？',
-          message: '当前商品总数已为 0 , 是否删除此项？'
-        }).then(function () {
-          console.log('点击了确认');
-        }).catch(function () {
-          console.log('点击了取消');
-        });
-      }
+    methods: {
+        onChange: function onChange(event) {
+            console.log(this.allCheck);
+            this.allCheck = !this.allCheck;
+        },
+        toPay: function toPay() {
+            console.log('点击了一下下');
+            console.log(wx);
+            wx.navigateTo({
+                url: '/pages/pay/main'
+            });
+        },
+        stepChange: function stepChange(event, index) {
+            var _this = this;
+
+            console.log(this.ALL);
+            var mount = event.mp.detail;
+            this.ALL[index].TPrice = mount * this.ALL[index].TypeSinglePrice;
+            this.ALL[index].TOrPrice = mount * this.ALL[index].TypeOrSinglePrice;
+            this.ALL[index].Mount = mount;
+            console.log('步数改变');
+            console.log(event);
+
+            if (mount === 0) {
+                __WEBPACK_IMPORTED_MODULE_0__dist_wx_components_vant_weapp_dist_dialog_dialog__["a" /* default */].confirm({
+                    title: '确认删除？',
+                    message: '当前商品数量已为 0 , 是否删除此项？'
+                }).then(function () {
+                    console.log('点击了确认');
+                    _this.ALL.splice(index, 1);
+                }).catch(function () {
+                    console.log('点击了取消');
+                });
+            }
+        },
+        checkSingle: function checkSingle(index) {
+            this.checkArray.splice(index, 1, !this.checkArray[index]);
+            if (this.checkArray.indexOf(false) === -1) {
+                this.allCheck = true;
+            } else {
+                this.allCheck = false;
+            }
+        },
+        checkAll: function checkAll() {
+            for (var i = 0; i < this.ALL.length; i++) {
+                this.checkArray[i] = !this.allCheck;
+            }
+            this.allCheck = !this.allCheck;
+        }
+    },
+    computed: {
+        allPrice: function allPrice() {
+            var _this2 = this;
+
+            var all = 0;
+            this.ALL.forEach(function (item, index) {
+                if (_this2.checkArray[index] === true) {
+                    all += item.TPrice;
+                }
+            });
+            return all * 100;
+        }
     }
-  }
 
 });
 
@@ -213,12 +251,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_c('van-checkbox', {
       staticClass: "checkBoxContent",
       attrs: {
-        "value": _vm.allCheck,
+        "value": _vm.checkArray[index],
         "eventid": '0_' + index,
         "mpcomid": '0_' + index
       },
       on: {
-        "change": _vm.onChange
+        "change": function($event) {
+          _vm.checkSingle(index)
+        }
       }
     })], 1), _vm._v(" "), _c('div', {
       staticClass: "product"
@@ -251,7 +291,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     })], 1)])])], 1)])
   }), _vm._v(" "), _c('div', [_c('van-submit-bar', {
     attrs: {
-      "price": 3050,
+      "price": _vm.allPrice,
       "button-text": "提交订单",
       "bind:submit": "onClickButton",
       "tip": true,
@@ -270,7 +310,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "mpcomid": '3'
     },
     on: {
-      "change": _vm.onChange
+      "change": _vm.checkAll
     }
   }, [_vm._v("全选")])], 1)])], 1), _vm._v(" "), _c('div', {
     staticClass: "footSpace"
