@@ -6,7 +6,7 @@
       </swiper-item>
     </swiper>
     <view class="_div data-v-002d76b9 priceText">
-      <view class="_p data-v-002d76b9 price">￥{{detailJson.Price}}</view> <label class="_span data-v-002d76b9 orprice" wx:if="{{detailJson.orprice}}">原价￥{{detailJson.orprice}}</label>
+      <view class="_p data-v-002d76b9 price">￥{{tagSelectedSinglePrice}}</view> <label class="_span data-v-002d76b9 orprice" wx:if="{{detailJson.orprice}}">原价￥{{detailJson.orprice}}</label>
     </view>
     <view class="_h1 data-v-002d76b9 title">    {{detailJson.Name}}</view>
     <view class="_div data-v-002d76b9">
@@ -24,24 +24,25 @@
     <view class="_view data-v-002d76b9 select">
       <view class="_div data-v-002d76b9 selected">
         <view class="_p data-v-002d76b9 selText">已选</view>
-        <view class="_p data-v-002d76b9 selectedInfo">480g*24整箱装</view>
+        <view class="_p data-v-002d76b9 selectedInfo">
+          {{tagSelectedName}}
+        </view>
       </view>
       <view class="_div data-v-002d76b9 product">
         <view class="_p data-v-002d76b9 selText chanpin">产品</view>
         <view class="_div data-v-002d76b9 proType">
-          <view bindtap="handleProxy" class="_div data-v-002d76b9 blue" data-eventid="{{'0'}}" data-comkey="{{$k}}">1111111</view>
-          <view bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_div data-v-002d76b9 {{(sTest == 2) ? 'blue' : ''}}">2222222</view>
-          <view bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_div data-v-002d76b9 {{this.sTest == 3 ? 'blue' : 'null'}}">3333333</view>
-          <view wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'3_'+index}}" data-comkey="{{$k}}" wx:for="{{detailJson.TypeandPrice}}" wx:for-index="index" wx:for-item="item" class="_div data-v-002d76b9 {{sTest == index ? 'blue' : 'null'}}">{{item}}</view>
+          <view wx:key="index" key="{{index}}" bindtap="handleProxy" class="_div data-v-002d76b9 proTag {{[tagSelected == index ? 'proTagSelected' : '']}}" data-eventid="{{'0_'+index}}" data-comkey="{{$k}}" wx:for="{{detailJson.TypeandPrice}}" wx:for-index="index" wx:for-item="item">
+            {{item[0]}}
+          </view>
         </view>
       </view>
       <view class="_div data-v-002d76b9 mount">
         <view class="_p data-v-002d76b9 selText">数量</view>
-        <van-stepper value="{{1}}" class="_van-stepper data-v-002d76b9"></van-stepper>
+        <van-stepper value="{{1}}" bindchange="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_van-stepper data-v-002d76b9"></van-stepper>
       </view>
     </view>
-    <van-cell title="商品参数" is-link bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_van-cell data-v-002d76b9"></van-cell>
-    <van-popup show="{{show}}" position="bottom" custom-style="height: 60%" bindclose="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_van-popup data-v-002d76b9">
+    <van-cell title="商品参数" is-link bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_van-cell data-v-002d76b9"></van-cell>
+    <van-popup show="{{show}}" position="bottom" custom-style="height: 60%" bindclose="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_van-popup data-v-002d76b9">
       <view class="_div data-v-002d76b9 chart">
         <view class="_div data-v-002d76b9 chartLine" wx:key="index" wx:for="{{detailJson.Paras}}" wx:for-index="index" wx:for-item="item">
           <view class="_div data-v-002d76b9 proName">{{item[0]}}</view>
@@ -57,10 +58,11 @@
     </view>
     <van-goods-action class="_van-goods-action data-v-002d76b9">
       <van-goods-action-icon icon="chat-o" text="客服" dot class="_van-goods-action-icon data-v-002d76b9"></van-goods-action-icon>
-      <van-goods-action-icon bindtap="handleProxy" icon="cart-o" text="购物车" info="5" data-eventid="{{'6'}}" data-comkey="{{$k}}" class="_van-goods-action-icon data-v-002d76b9"></van-goods-action-icon>
-      <van-goods-action-button text="加入购物车" type="warning" class="_van-goods-action-button data-v-002d76b9"></van-goods-action-button>
+      <van-goods-action-icon bindtap="handleProxy" icon="cart-o" text="购物车" info="5" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_van-goods-action-icon data-v-002d76b9"></van-goods-action-icon>
+      <van-goods-action-button text="加入购物车" type="warning" bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_van-goods-action-button data-v-002d76b9"></van-goods-action-button>
       <van-goods-action-button text="立即购买" class="_van-goods-action-button data-v-002d76b9"></van-goods-action-button>
     </van-goods-action>
     <view class="_div data-v-002d76b9 lastTip">亲！到底了油！^-^</view>
+    <van-toast id="van-toast" class="_van-toast data-v-002d76b9"></van-toast>
   </view>
 </template>

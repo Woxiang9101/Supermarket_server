@@ -13,7 +13,7 @@
 
     <!--    价格-->
     <div class="priceText">
-      <p class="price">￥{{detailJson.Price}}</p>
+      <p class="price">￥{{tagSelectedSinglePrice}}</p>
       <span class="orprice" v-if="detailJson.orprice">原价￥{{detailJson.orprice}}</span>
     </div>
 
@@ -46,57 +46,31 @@
               v-bind:center="true" :clickable="false" arrow-direction="down" />
     <view class="select">
       <div class="selected">
-        <p class="selText">已选</p> <p class="selectedInfo">480g*24整箱装</p>
+        <p class="selText">已选</p>
+        <p class="selectedInfo">
+          {{tagSelectedName}}
+        </p>
       </div>
-
-<!--      原product-->
-<!--      <div class="product">-->
-<!--        <p class="selText chanpin">产品</p>-->
-<!--        <div class="proType">-->
-<!--          <div v-for="(item,index) in detailJson.TypeandPrice"-->
-<!--             wx:key="index" :key="index"-->
-<!--             @click="tagSelect(event,index)"-->
-<!--             :class="tagSelected == 1?'proTagSelected':'proTag'">-->
-<!--            {{item[0]}}-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
 
 
       <div class="product">
         <p class="selText chanpin">产品</p>
         <div class="proType">
-<!--          <div v-for="(item,index) in detailJson.TypeandPrice"-->
-<!--               wx:key="index" :key="index"-->
-<!--               @click="tagSelect(event,index)"-->
-<!--               :class="tagSelected == 1?'proTagSelected':'proTag'">-->
-<!--            {{item[0]}}-->
-<!--          </div>-->
-
-
-          <div @click="selTest(event,1)" class="blue">1111111</div>
-          <div @click="selTest(event,2)"
-               :class="(sTest ==2) ? 'blue':'' ">2222222</div>
-          <div @click="selTest(event,3)"
-               :class="this.sTest == 3 ? 'blue':'null' ">3333333</div>
-
           <div v-for="(item,index) in detailJson.TypeandPrice"
                wx:key="index" :key="index"
-               @click="selTest(event,index)"
-          :class="sTest == index ? 'blue':'null' ">{{item}}</div>
-
+               @click="tagSelect(index)"
+               class="proTag"
+               :class="{'proTagSelected':tagSelected == index}"
+              >
+            {{item[0]}}
+          </div>
         </div>
       </div>
 
 
-
-
-
-
-
       <div class="mount">
         <p class="selText">数量</p>
-        <van-stepper :value="1"  />
+        <van-stepper :value="1"  @change="mountChange"/>
       </div>
 
 
@@ -136,38 +110,47 @@
     <van-goods-action >
       <van-goods-action-icon icon="chat-o" text="客服" dot />
       <van-goods-action-icon  @click="toCart" icon="cart-o" text="购物车" info="5" />
-      <van-goods-action-button text="加入购物车" type="warning" />
+      <van-goods-action-button text="加入购物车" type="warning" @click="addToCart"/>
       <van-goods-action-button text="立即购买" />
     </van-goods-action>
 
     <div class="lastTip">亲！到底了油！^-^</div>
+
+    <van-toast id="van-toast" />
 
   </div>
 </template>
 
 
 <script>
+    import Toast from '../../../dist/wx/components/vant-weapp/dist/toast/toast';
+
   export default {
 
-    created:function(){
-        this.scrWidth = wx.getSystemInfoSync().windowWidth;
-        wx.request({
-            url: 'http://192.168.0.110:5000/getproduct?ID=201616060301',
-            success: (res)=> {
-                console.log('【发起网络请求成功！】',res.data);
-                this.detailJson = res.data;
-                this.swiWidth = this.scrWidth / this.detailJson.BIratio;
-            }
-        })
-    },
+      onLoad: function (options) {
+          this.ID = options.ID;
+          this.scrWidth = wx.getSystemInfoSync().windowWidth;
+          wx.request({
+              url: 'http://192.168.0.110:5000/getproduct?ID=' + this.ID,
+              success: (res)=> {
+                  console.log('【发起网络请求成功！】',res.data);
+                  this.detailJson = res.data;
+                  this.tagSelectedSinglePrice = res.data.Price;
+                  this.swiWidth = this.scrWidth / this.detailJson.BIratio;
+              }
+          })
+      },
 
     data:{
+        ID:null,
         scrWidth:20,//屏幕原始尺寸
         URL:'http://192.168.0.110:5000/',
         show: false,//产品参数是否显示
         detailJson:666,//产品完整Json数据
-        tagSelected:2,
-        sTest:666,
+        tagSelected:null,
+        tagSelectedName:'',
+        tagSelectedMount:1,
+        tagSelectedSinglePrice:0,
     },
 
     methods: {
@@ -186,15 +169,17 @@
                 url: '/pages/cart/main',
             })
         },
-        tagSelect: (event,i) => {
-            console.log('点击了一下');
-            console.log(i);
+        tagSelect: function(i) {
             this.tagSelected = i;
-            console.log('当前tagSelected：', this.tagSelected);
+            this.tagSelectedName = this.detailJson.TypeandPrice[this.tagSelected][0];
+            this.tagSelectedSinglePrice = this.detailJson.TypeandPrice[this.tagSelected][1];
+            console.log('当前选择的是', this.detailJson.TypeandPrice[this.tagSelected]);
         },
-        selTest:(event,i)=>{
-            this.sTest = i;
-            console.log('test点击事件',this.sTest);
+        mountChange:function(event) {
+            this.tagSelectedMount = event.mp.detail;
+        },
+        addToCart:function () {
+            Toast.success('加入成功！');
         }
     }
 
@@ -202,10 +187,6 @@
 </script>
 
 <style>
-
-  .blue{
-    color:blue;
-  }
 
   page{
     margin: 0;
@@ -296,21 +277,11 @@
     padding-right: 15rpx;
     display: inline-block;
     border-radius: 5rpx;
-    /*background-color: #07c160;*/
     border: 1px solid rgba(154, 154, 154, 0.71);
     margin: 10rpx;
     font-size: 25rpx;
   }
   .proTagSelected{
-    padding: 5rpx;
-    padding-left: 15rpx;
-    padding-right: 15rpx;
-    display: inline-block;
-    border-radius: 5rpx;
-    /*background-color: #07c160;*/
-    border: 1px solid rgba(154, 154, 154, 0.71);
-    margin: 10rpx;
-    font-size: 25rpx;
     background-color: #07c160;
     color:white;
   }

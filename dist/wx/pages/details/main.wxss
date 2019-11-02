@@ -1,7 +1,4 @@
 
-.blue {
-  color: blue;
-}
 page {
   margin: 0;
   padding: 0;
@@ -80,14 +77,6 @@ page {
   font-size: 25rpx;
 }
 .proTagSelected {
-  padding: 5rpx;
-  padding-left: 15rpx;
-  padding-right: 15rpx;
-  display: inline-block;
-  border-radius: 5rpx;
-  border: 2rpx solid rgba(154, 154, 154, 0.71);
-  margin: 10rpx;
-  font-size: 25rpx;
   background-color: #07c160;
   color: white;
 }

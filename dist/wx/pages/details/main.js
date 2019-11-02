@@ -1,27 +1,15 @@
 require("../../common/manifest.js")
 require("../../common/vendor.js")
-global.webpackJsonpMpvue([5],[
-/* 0 */,
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */
+global.webpackJsonpMpvue([4],{
+
+/***/ 17:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(18);
 
 
 
@@ -35,16 +23,17 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MOD
 app.$mount();
 
 /***/ }),
-/* 14 */
+
+/***/ 18:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_template_compiler_index_id_data_v_002d76b9_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_template_compiler_index_id_data_v_002d76b9_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(22);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(15)
+  __webpack_require__(19)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -88,190 +77,174 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 15 */
+
+/***/ 19:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 16 */
+
+/***/ 21:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var _this2 = this;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__dist_wx_components_vant_weapp_dist_toast_toast__ = __webpack_require__(42);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 /* harmony default export */ __webpack_exports__["a"] = ({
 
-    created: function created() {
+    onLoad: function onLoad(options) {
         var _this = this;
 
+        this.ID = options.ID;
         this.scrWidth = wx.getSystemInfoSync().windowWidth;
         wx.request({
-            url: 'http://192.168.0.110:5000/getproduct?ID=201616060301',
+            url: 'http://192.168.0.110:5000/getproduct?ID=' + this.ID,
             success: function success(res) {
                 console.log('【发起网络请求成功！】', res.data);
                 _this.detailJson = res.data;
+                _this.tagSelectedSinglePrice = res.data.Price;
                 _this.swiWidth = _this.scrWidth / _this.detailJson.BIratio;
             }
         });
     },
 
     data: {
+        ID: null,
         scrWidth: 20, //屏幕原始尺寸
         URL: 'http://192.168.0.110:5000/',
         show: false, //产品参数是否显示
         detailJson: 666, //产品完整Json数据
-        tagSelected: 2,
-        sTest: 666
+        tagSelected: null,
+        tagSelectedName: '',
+        tagSelectedMount: 1,
+        tagSelectedSinglePrice: 0
     },
 
     methods: {
@@ -290,22 +263,25 @@ var _this2 = this;
                 url: '/pages/cart/main'
             });
         },
-        tagSelect: function tagSelect(event, i) {
-            console.log('点击了一下');
-            console.log(i);
-            _this2.tagSelected = i;
-            console.log('当前tagSelected：', _this2.tagSelected);
+        tagSelect: function tagSelect(i) {
+            this.tagSelected = i;
+            this.tagSelectedName = this.detailJson.TypeandPrice[this.tagSelected][0];
+            this.tagSelectedSinglePrice = this.detailJson.TypeandPrice[this.tagSelected][1];
+            console.log('当前选择的是', this.detailJson.TypeandPrice[this.tagSelected]);
         },
-        selTest: function selTest(event, i) {
-            _this2.sTest = i;
-            console.log('test点击事件', _this2.sTest);
+        mountChange: function mountChange(event) {
+            this.tagSelectedMount = event.mp.detail;
+        },
+        addToCart: function addToCart() {
+            __WEBPACK_IMPORTED_MODULE_0__dist_wx_components_vant_weapp_dist_toast_toast__["a" /* default */].success('加入成功！');
         }
     }
 
 });
 
 /***/ }),
-/* 17 */
+
+/***/ 22:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -336,7 +312,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "priceText"
   }, [_c('p', {
     staticClass: "price"
-  }, [_vm._v("￥" + _vm._s(_vm.detailJson.Price))]), _vm._v(" "), (_vm.detailJson.orprice) ? _c('span', {
+  }, [_vm._v("￥" + _vm._s(_vm.tagSelectedSinglePrice))]), _vm._v(" "), (_vm.detailJson.orprice) ? _c('span', {
     staticClass: "orprice"
   }, [_vm._v("原价￥" + _vm._s(_vm.detailJson.orprice))]) : _vm._e()], 1), _vm._v(" "), _c('h1', {
     staticClass: "title"
@@ -397,70 +373,47 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "selText"
   }, [_vm._v("已选")]), _vm._v(" "), _c('p', {
     staticClass: "selectedInfo"
-  }, [_vm._v("480g*24整箱装")])], 1), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n          " + _vm._s(_vm.tagSelectedName) + "\n        ")])], 1), _vm._v(" "), _c('div', {
     staticClass: "product"
   }, [_c('p', {
     staticClass: "selText chanpin"
   }, [_vm._v("产品")]), _vm._v(" "), _c('div', {
     staticClass: "proType"
-  }, [_c('div', {
-    staticClass: "blue",
-    attrs: {
-      "eventid": '0'
-    },
-    on: {
-      "click": function($event) {
-        _vm.selTest(_vm.event, 1)
-      }
-    }
-  }, [_vm._v("1111111")]), _vm._v(" "), _c('div', {
-    class: (_vm.sTest == 2) ? 'blue' : '',
-    attrs: {
-      "eventid": '1'
-    },
-    on: {
-      "click": function($event) {
-        _vm.selTest(_vm.event, 2)
-      }
-    }
-  }, [_vm._v("2222222")]), _vm._v(" "), _c('div', {
-    class: this.sTest == 3 ? 'blue' : 'null',
-    attrs: {
-      "eventid": '2'
-    },
-    on: {
-      "click": function($event) {
-        _vm.selTest(_vm.event, 3)
-      }
-    }
-  }, [_vm._v("3333333")]), _vm._v(" "), _vm._l((_vm.detailJson.TypeandPrice), function(item, index) {
+  }, _vm._l((_vm.detailJson.TypeandPrice), function(item, index) {
     return _c('div', {
       key: index,
-      class: _vm.sTest == index ? 'blue' : 'null',
+      staticClass: "proTag",
+      class: {
+        'proTagSelected': _vm.tagSelected == index
+      },
       attrs: {
         "wx:key": "index",
-        "eventid": '3_' + index
+        "eventid": '0_' + index
       },
       on: {
         "click": function($event) {
-          _vm.selTest(_vm.event, index)
+          _vm.tagSelect(index)
         }
       }
-    }, [_vm._v(_vm._s(item))])
-  })], 2)], 1), _vm._v(" "), _c('div', {
+    }, [_vm._v("\n            " + _vm._s(item[0]) + "\n          ")])
+  }))], 1), _vm._v(" "), _c('div', {
     staticClass: "mount"
   }, [_c('p', {
     staticClass: "selText"
   }, [_vm._v("数量")]), _vm._v(" "), _c('van-stepper', {
     attrs: {
       "value": 1,
+      "eventid": '1',
       "mpcomid": '7'
+    },
+    on: {
+      "change": _vm.mountChange
     }
   })], 1)]), _vm._v(" "), _c('van-cell', {
     attrs: {
       "title": "商品参数",
       "is-link": "",
-      "eventid": '4',
+      "eventid": '2',
       "mpcomid": '8'
     },
     on: {
@@ -471,7 +424,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "show": _vm.show,
       "position": "bottom",
       "custom-style": "height: 60%",
-      "eventid": '5',
+      "eventid": '3',
       "mpcomid": '9'
     },
     on: {
@@ -528,7 +481,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "icon": "cart-o",
       "text": "购物车",
       "info": "5",
-      "eventid": '6',
+      "eventid": '4',
       "mpcomid": '12'
     },
     on: {
@@ -538,7 +491,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "text": "加入购物车",
       "type": "warning",
+      "eventid": '5',
       "mpcomid": '13'
+    },
+    on: {
+      "click": _vm.addToCart
     }
   }), _vm._v(" "), _c('van-goods-action-button', {
     attrs: {
@@ -547,7 +504,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   })], 1), _vm._v(" "), _c('div', {
     staticClass: "lastTip"
-  }, [_vm._v("亲！到底了油！^-^")])], 1)
+  }, [_vm._v("亲！到底了油！^-^")]), _vm._v(" "), _c('van-toast', {
+    attrs: {
+      "id": "van-toast",
+      "mpcomid": '16'
+    }
+  })], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -560,5 +522,120 @@ if (false) {
   }
 }
 
+/***/ }),
+
+/***/ 42:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common_utils__ = __webpack_require__(43);
+
+const defaultOptions = {
+    type: 'text',
+    mask: false,
+    message: '',
+    show: true,
+    zIndex: 1000,
+    duration: 3000,
+    position: 'middle',
+    forbidClick: false,
+    loadingType: 'circular',
+    selector: '#van-toast'
+};
+let queue = [];
+let currentOptions = Object.assign({}, defaultOptions);
+function parseOptions(message) {
+    return Object(__WEBPACK_IMPORTED_MODULE_0__common_utils__["a" /* isObj */])(message) ? message : { message };
+}
+function getContext() {
+    const pages = getCurrentPages();
+    return pages[pages.length - 1];
+}
+function Toast(toastOptions) {
+    const options = Object.assign({}, currentOptions, parseOptions(toastOptions));
+    const context = options.context || getContext();
+    const toast = context.selectComponent(options.selector);
+    if (!toast) {
+        console.warn('未找到 van-toast 节点，请确认 selector 及 context 是否正确');
+        return;
+    }
+    delete options.context;
+    delete options.selector;
+    toast.clear = () => {
+        toast.set({ show: false });
+        if (options.onClose) {
+            options.onClose();
+        }
+    };
+    queue.push(toast);
+    toast.set(options);
+    clearTimeout(toast.timer);
+    if (options.duration > 0) {
+        toast.timer = setTimeout(() => {
+            toast.clear();
+            queue = queue.filter(item => item !== toast);
+        }, options.duration);
+    }
+    return toast;
+}
+const createMethod = (type) => (options) => Toast(Object.assign({ type }, parseOptions(options)));
+Toast.loading = createMethod('loading');
+Toast.success = createMethod('success');
+Toast.fail = createMethod('fail');
+Toast.clear = () => {
+    queue.forEach(toast => {
+        toast.clear();
+    });
+    queue = [];
+};
+Toast.setDefaultOptions = (options) => {
+    Object.assign(currentOptions, options);
+};
+Toast.resetDefaultOptions = () => {
+    currentOptions = Object.assign({}, defaultOptions);
+};
+/* harmony default export */ __webpack_exports__["a"] = (Toast);
+
+
+/***/ }),
+
+/***/ 43:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export isDef */
+/* harmony export (immutable) */ __webpack_exports__["a"] = isObj;
+/* unused harmony export isNumber */
+/* unused harmony export range */
+/* unused harmony export nextTick */
+/* unused harmony export getSystemInfoSync */
+function isDef(value) {
+    return value !== undefined && value !== null;
+}
+function isObj(x) {
+    const type = typeof x;
+    return x !== null && (type === 'object' || type === 'function');
+}
+function isNumber(value) {
+    return /^\d+$/.test(value);
+}
+function range(num, min, max) {
+    return Math.min(Math.max(num, min), max);
+}
+function nextTick(fn) {
+    setTimeout(() => {
+        fn();
+    }, 1000 / 30);
+}
+let systemInfo = null;
+function getSystemInfoSync() {
+    if (systemInfo == null) {
+        systemInfo = wx.getSystemInfoSync();
+    }
+    return systemInfo;
+}
+
+
 /***/ })
-],[13]);
+
+},[17]);

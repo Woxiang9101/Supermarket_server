@@ -7,10 +7,10 @@
     "van-goods-action": "/components/vant-weapp/dist/goods-action/index",
     "van-goods-action-icon": "/components/vant-weapp/dist/goods-action-icon/index",
     "van-goods-action-button": "/components/vant-weapp/dist/goods-action-button/index",
-    "van-notice-bar": "/components/vant-weapp/dist/notice-bar/index"
+    "van-notice-bar": "/components/vant-weapp/dist/notice-bar/index",
+    "van-toast": "/components/vant-weapp/dist/toast/index"
   },
-  "navigationBarBackgroundColor": "#3366FF",
-  "navigationBarTextStyle": "white",
+  "navigationBarTextStyle": "black",
   "navigationBarTitleText": "商品详情",
   "backgroundColor": "#00B2EE",
   "backgroundTextStyle": "light"

@@ -4,7 +4,7 @@
       <swiper-item bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_swiper-item data-v-0cd18190">
         <image class="_img data-v-0cd18190 swiperItem" src="/static/demo/swiper1.jpg" alt></image>
       </swiper-item>
-      <swiper-item class="_swiper-item data-v-0cd18190">
+      <swiper-item bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_swiper-item data-v-0cd18190">
         <image class="_img data-v-0cd18190 swiperItem" src="/static/demo/swiper2.jpg" alt></image>
       </swiper-item>
       <swiper-item class="_swiper-item data-v-0cd18190">

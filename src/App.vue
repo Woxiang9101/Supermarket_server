@@ -13,7 +13,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 200 rpx 0;
+    padding: 200rpx 0;
     box-sizing: border-box;
   }
 

@@ -4,8 +4,10 @@
     "van-tab": "/components/vant-weapp/dist/tab/index",
     "van-tabs": "/components/vant-weapp/dist/tabs/index"
   },
-  "navigationBarTextStyle": "black",
+  "navigationBarBackgroundColor": "#00b7ff",
+  "navigationBarTextStyle": "white",
   "navigationBarTitleText": "超市好货大清仓",
+  "backgroundColor": "#c9e3f0",
   "backgroundTextStyle": "light"
 }
 

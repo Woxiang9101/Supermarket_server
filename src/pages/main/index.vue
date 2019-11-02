@@ -3,8 +3,14 @@
 
 <!--    顶部swiper轮播图-->
     <swiper class="swiper" indicator-dots="true" autoplay="true" circular="true">
-      <swiper-item @click="todetail"><img class="swiperItem" src="/static/demo/swiper1.jpg" alt=""></swiper-item>
-      <swiper-item><img class="swiperItem" src="/static/demo/swiper2.jpg" alt=""></swiper-item>
+
+      <swiper-item @click="todetail(201616060301)">
+        <img class="swiperItem" src="/static/demo/swiper1.jpg" alt="">
+      </swiper-item>
+
+      <swiper-item @click="todetail(201616060302)">
+        <img class="swiperItem" src="/static/demo/swiper2.jpg" alt="">
+      </swiper-item>
       <swiper-item><img class="swiperItem" src="/static/demo/swiper1.jpg" alt=""></swiper-item>
       <swiper-item><img class="swiperItem" src="/static/demo/swiper2.jpg" alt=""></swiper-item>
     </swiper>
@@ -414,11 +420,11 @@
       }
     },
     methods:{
-    todetail:() => {
+    todetail:(ID) => {
       console.log('点击了一下下')
       console.log(wx)
       wx.navigateTo({
-        url: '/pages/details/main',
+        url: '/pages/details/main?ID=' + ID,
       })
       }
     }
@@ -428,6 +434,9 @@
 </script>
 
 <style>
+  page{
+    /*background-color: #4f2bf7;*/
+  }
   .swiper{
     width: 95%;
     height: 300rpx;
@@ -474,25 +483,24 @@
   .scrollXItem{
     height: 357rpx;
     width: 200rpx;
-    margin-left: 20rpx;
+    margin-left: 10rpx;
     display: inline-block;
     overflow: hidden;
     padding: 20rpx;
     border-radius: 10rpx;
     background-color: white;
-    box-shadow: 5rpx 5rpx 10rpx #abaaa2;
-
+    box-shadow: 5rpx 5rpx 10rpx #dad9d1;
+    margin-right: 10rpx;
   }
   .scrollYItem{
     height: 470rpx;
     width: 300rpx;
-    margin: 10rpx 10rpx 5rpx 10rpx;
+    margin: 10rpx 27rpx 20rpx 27rpx;
     display: inline-block;
     overflow: hidden;
-    padding: 20rpx;
     border-radius: 10rpx;
     background-color: white;
-    box-shadow: 5rpx 5rpx 10rpx #abaaa2;
+    box-shadow: 5rpx 5rpx 10rpx #dad9d1;
   }
   .yimg{
     width: 300rpx;
@@ -513,9 +521,10 @@
     white-space: normal !important;
     line-height: 43.5rpx;
     margin-top: 20rpx;
+    margin-bottom: 10rpx;
   }
   .ytitle{
-    width: 300rpx;
+    width: 280rpx;
     height: 87rpx;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -526,12 +535,14 @@
     line-height: 43.5rpx;
     margin-top: 20rpx;
     margin-bottom: 7rpx;
+    padding-left: 10rpx;
+    padding-right: 10rpx;
   }
   .price{
     font-size: 30rpx;
     display: inline-block;
     margin-right: 20rpx;
-    margin-top: 10rpx;
+    /*margin-top: 10rpx;*/
     color: #ff702d;
   }
   .orprice{

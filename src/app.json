@@ -1,11 +1,12 @@
 {
   "pages": [
-    "pages/details/main",
+
     "pages/main/main",
+    "pages/details/main",
+    "pages/activity/main",
 
     "pages/cart/main",
     "pages/personal/main",
-    "pages/promotion/main",
     "pages/pay/main"
   ],
   "window": {
@@ -17,25 +18,25 @@
   "tabBar": {
     "color": "#999",
     "backgroundColor": "#f7f7f7",
-    "selectedColor": "#3366FF",
+    "selectedColor": "#00A2FF",
     "borderStyle": "black",
     "list": [
       {
         "text": "首页",
-        "iconPath": "/static/tabbars/chat.png",
-        "selectedIconPath": "/static/tabbars/chatSelected.png",
+        "iconPath": "/static/tabbars/main.png",
+        "selectedIconPath": "/static/tabbars/mainS.png",
         "pagePath": "pages/main/main"
       },
       {
         "text": "活动",
-        "iconPath": "/static/tabbars/chat.png",
-        "selectedIconPath": "/static/tabbars/chatSelected.png",
-        "pagePath": "pages/promotion/main"
+        "iconPath": "/static/tabbars/activity.png",
+        "selectedIconPath": "/static/tabbars/activityS.png",
+        "pagePath": "pages/activity/main"
       },
       {
         "text": "我的",
         "iconPath": "/static/tabbars/my.png",
-        "selectedIconPath": "/static/tabbars/mySelected.png",
+        "selectedIconPath": "/static/tabbars/myS.png",
         "pagePath": "pages/personal/main"
       }
     ]

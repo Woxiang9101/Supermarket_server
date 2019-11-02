@@ -1,0 +1,193 @@
+<template name="2117bf6f">
+  <view class="_div data-v-234c870e">
+    <image class="_img data-v-234c870e header" alt src="http://192.168.0.110:5000/activity/header.jpg"></image>
+    <image class="_img data-v-234c870e content" alt src="http://192.168.0.110:5000/activity/contentHeader.jpg"></image>
+    <scroll-view class="_scroll-view data-v-234c870e scrollX" scroll-x="true" bindscroll="scroll" style="width: 100%">
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+    </scroll-view>
+    <scroll-view class="_scroll-view data-v-234c870e scrollX" scroll-x="true" bindscroll="scroll" style="width: 100%">
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+    </scroll-view>
+    <scroll-view class="_scroll-view data-v-234c870e scrollX" scroll-x="true" bindscroll="scroll" style="width: 100%">
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+      <view class="_div data-v-234c870e scrollXItem">
+        <image class="_img data-v-234c870e ximg" src="/static/demo/scrox.jpg"></image>
+        <view class="_p data-v-234c870e title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</view>
+        <view class="_p data-v-234c870e price">￥64.9</view>
+        <view class="_s data-v-234c870e orprice">￥77.50</view>
+      </view>
+    </scroll-view>
+    <image class="_img data-v-234c870e content" alt src="http://192.168.0.110:5000/activity/contentFoot.jpg"></image>
+  </view>
+</template>
