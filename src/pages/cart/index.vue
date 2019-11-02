@@ -29,7 +29,7 @@
     </div>
 
 
-    <!--    //底部-->
+    <!--//底部-->
     <div>
       <van-submit-bar
         :price="allPrice"
