@@ -4,7 +4,7 @@
 
     <!--顶部swiper轮播图-->
     <swiper class="swiper" indicator-dots="true"
-            :style="{height: scrWidth/detailJson.BIratio + 'px'}">
+            :style="{height: scrWidth/BIratio + 'px'}">
       <swiper-item v-for="(item,index) in detailJson.BIs" wx:key="index" :key="index">
         <img class="swiperItem"
              :src="URL + '/products/' + detailJson.ID +'/BI/' + item" alt="">
@@ -14,7 +14,7 @@
     <!--    价格-->
     <div class="priceText">
       <p class="price">￥{{tagSelectedSinglePrice}}</p>
-      <span class="orprice" v-if="detailJson.orprice">原价￥{{detailJson.orprice}}</span>
+      <span class="orprice">原价￥{{tagSelectedOrSinglePrice}}</span>
     </div>
 
     <!--    标题-->
@@ -109,12 +109,14 @@
 <!--    底部购物功能区-->
     <van-goods-action >
       <van-goods-action-icon icon="chat-o" text="客服" dot />
-      <van-goods-action-icon  @click="toCart" icon="cart-o" text="购物车" info="5" />
+      <van-goods-action-icon  @click="toCart"
+                              icon="cart-o" text="购物车"
+                              :info="cartMount==0?null:cartMount" />
       <van-goods-action-button text="加入购物车" type="warning" @click="addToCart"/>
       <van-goods-action-button text="立即购买" />
     </van-goods-action>
 
-    <div class="lastTip">亲！到底了油！^-^</div>
+    <div class="lastTip">亲！没了油！^-^</div>
 
     <van-toast id="van-toast" />
 
@@ -128,15 +130,36 @@
   export default {
 
       onLoad: function (options) {
-          this.ID = options.ID;
-          this.scrWidth = wx.getSystemInfoSync().windowWidth;
+          Toast.loading({
+              mask: true,
+              duration:0,
+              message: '加载中...'
+          });
+         this.ID = options.ID;
+         this.BIratio = 1;
+         this.scrWidth = wx.getSystemInfoSync().windowWidth;
+         this.show = false;
+         this.detailJson = null;
+         this.tagSelected = null;
+         this.tagSelectedName = '';
+         this.tagSelectedMount = 1;
+         this.tagSelectedSinglePrice = 0;
+         this.tagSelectedOrSinglePrice = 0;
+         this.cartMount = this.$store.state.cart.length;
+
+          console.log('当前ID为:', this.ID);
           wx.request({
               url: 'http://192.168.0.110:5000/getproduct?ID=' + this.ID,
               success: (res)=> {
                   console.log('【发起网络请求成功！】',res.data);
                   this.detailJson = res.data;
-                  this.tagSelectedSinglePrice = res.data.Price;
+                  this.BIratio = this.detailJson.BIratio;
                   this.swiWidth = this.scrWidth / this.detailJson.BIratio;
+                  this.tagSelected = 0;
+                  this.tagSelectedName = res.data.TypeandPrice[0][0];
+                  this.tagSelectedSinglePrice = this.detailJson.TypeandPrice[0][1];
+                  this.tagSelectedOrSinglePrice = this.detailJson.TypeandPrice[0][2];
+                  Toast.clear();
               }
           })
       },
@@ -144,13 +167,16 @@
     data:{
         ID:null,
         scrWidth:20,//屏幕原始尺寸
+        BIratio:1,
         URL:'http://192.168.0.110:5000/',
         show: false,//产品参数是否显示
-        detailJson:666,//产品完整Json数据
+        detailJson:null,//产品完整Json数据
         tagSelected:null,
         tagSelectedName:'',
         tagSelectedMount:1,
         tagSelectedSinglePrice:0,
+        tagSelectedOrSinglePrice:0,
+        cartMount:0,
     },
 
     methods: {
@@ -173,13 +199,32 @@
             this.tagSelected = i;
             this.tagSelectedName = this.detailJson.TypeandPrice[this.tagSelected][0];
             this.tagSelectedSinglePrice = this.detailJson.TypeandPrice[this.tagSelected][1];
+            this.tagSelectedOrSinglePrice = this.detailJson.TypeandPrice[this.tagSelected][2];
             console.log('当前选择的是', this.detailJson.TypeandPrice[this.tagSelected]);
         },
         mountChange:function(event) {
             this.tagSelectedMount = event.mp.detail;
         },
         addToCart:function () {
-            Toast.success('加入成功！');
+            let productItem = {
+                Img:this.detailJson.BIs[0],
+                ID:this.ID,
+                Name:this.detailJson.Name,
+                Type:this.tagSelected,
+                TypeName:this.tagSelectedName,
+                TypeSinglePrice:this.tagSelectedSinglePrice,
+                TypeOrSinglePrice:this.tagSelectedOrSinglePrice,
+                Mount:this.tagSelectedMount,
+                TPrice:this.tagSelectedMount * this.tagSelectedSinglePrice,
+                TOrPrice:this.tagSelectedMount * this.tagSelectedOrSinglePrice,
+            }
+            this.$store.dispatch('addToCart',productItem);
+            this.cartMount++;
+            Toast.success({
+                duration: 1000,       // 持续展示 toast
+                message: '加入成功!',
+            });
+            console.log(this.$store.state);
         }
     }
 

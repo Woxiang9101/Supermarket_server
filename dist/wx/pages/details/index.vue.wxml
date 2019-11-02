@@ -1,12 +1,12 @@
 <template name="4e8ae504">
   <view class="_div data-v-002d76b9">
-    <swiper class="_swiper data-v-002d76b9 swiper" indicator-dots="true" style=" {{('height:' + (scrWidth / detailJson.BIratio + 'px') + ';')}}">
+    <swiper class="_swiper data-v-002d76b9 swiper" indicator-dots="true" style=" {{('height:' + (scrWidth / BIratio + 'px') + ';')}}">
       <swiper-item wx:key="index" key="{{index}}" wx:for="{{detailJson.BIs}}" wx:for-index="index" wx:for-item="item" class="_swiper-item data-v-002d76b9">
         <image class="_img data-v-002d76b9 swiperItem" src="{{URL + '/products/' + detailJson.ID +'/BI/' + item}}" alt></image>
       </swiper-item>
     </swiper>
     <view class="_div data-v-002d76b9 priceText">
-      <view class="_p data-v-002d76b9 price">￥{{tagSelectedSinglePrice}}</view> <label class="_span data-v-002d76b9 orprice" wx:if="{{detailJson.orprice}}">原价￥{{detailJson.orprice}}</label>
+      <view class="_p data-v-002d76b9 price">￥{{tagSelectedSinglePrice}}</view> <label class="_span data-v-002d76b9 orprice">原价￥{{tagSelectedOrSinglePrice}}</label>
     </view>
     <view class="_h1 data-v-002d76b9 title">    {{detailJson.Name}}</view>
     <view class="_div data-v-002d76b9">
@@ -58,11 +58,11 @@
     </view>
     <van-goods-action class="_van-goods-action data-v-002d76b9">
       <van-goods-action-icon icon="chat-o" text="客服" dot class="_van-goods-action-icon data-v-002d76b9"></van-goods-action-icon>
-      <van-goods-action-icon bindtap="handleProxy" icon="cart-o" text="购物车" info="5" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_van-goods-action-icon data-v-002d76b9"></van-goods-action-icon>
+      <van-goods-action-icon bindtap="handleProxy" icon="cart-o" text="购物车" info="{{cartMount==0?null:cartMount}}" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_van-goods-action-icon data-v-002d76b9"></van-goods-action-icon>
       <van-goods-action-button text="加入购物车" type="warning" bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_van-goods-action-button data-v-002d76b9"></van-goods-action-button>
       <van-goods-action-button text="立即购买" class="_van-goods-action-button data-v-002d76b9"></van-goods-action-button>
     </van-goods-action>
-    <view class="_div data-v-002d76b9 lastTip">亲！到底了油！^-^</view>
+    <view class="_div data-v-002d76b9 lastTip">亲！没了油！^-^</view>
     <van-toast id="van-toast" class="_van-toast data-v-002d76b9"></van-toast>
   </view>
 </template>

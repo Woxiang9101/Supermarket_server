@@ -1,15 +1,15 @@
 require("../../common/manifest.js")
 require("../../common/vendor.js")
-global.webpackJsonpMpvue([4],{
+global.webpackJsonpMpvue([2],{
 
-/***/ 17:
+/***/ 45:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(46);
 
 
 
@@ -24,16 +24,16 @@ app.$mount();
 
 /***/ }),
 
-/***/ 18:
+/***/ 46:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_template_compiler_index_id_data_v_002d76b9_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_template_compiler_index_id_data_v_002d76b9_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(51);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(19)
+  __webpack_require__(47)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -78,18 +78,20 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 19:
+/***/ 47:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 21:
+/***/ 48:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__dist_wx_components_vant_weapp_dist_toast_toast__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__dist_wx_components_vant_weapp_dist_toast_toast__ = __webpack_require__(49);
+//
+//
 //
 //
 //
@@ -222,15 +224,36 @@ if (false) {(function () {
     onLoad: function onLoad(options) {
         var _this = this;
 
+        __WEBPACK_IMPORTED_MODULE_0__dist_wx_components_vant_weapp_dist_toast_toast__["a" /* default */].loading({
+            mask: true,
+            duration: 0,
+            message: '加载中...'
+        });
         this.ID = options.ID;
+        this.BIratio = 1;
         this.scrWidth = wx.getSystemInfoSync().windowWidth;
+        this.show = false;
+        this.detailJson = null;
+        this.tagSelected = null;
+        this.tagSelectedName = '';
+        this.tagSelectedMount = 1;
+        this.tagSelectedSinglePrice = 0;
+        this.tagSelectedOrSinglePrice = 0;
+        this.cartMount = this.$store.state.cart.length;
+
+        console.log('当前ID为:', this.ID);
         wx.request({
             url: 'http://192.168.0.110:5000/getproduct?ID=' + this.ID,
             success: function success(res) {
                 console.log('【发起网络请求成功！】', res.data);
                 _this.detailJson = res.data;
-                _this.tagSelectedSinglePrice = res.data.Price;
+                _this.BIratio = _this.detailJson.BIratio;
                 _this.swiWidth = _this.scrWidth / _this.detailJson.BIratio;
+                _this.tagSelected = 0;
+                _this.tagSelectedName = res.data.TypeandPrice[0][0];
+                _this.tagSelectedSinglePrice = _this.detailJson.TypeandPrice[0][1];
+                _this.tagSelectedOrSinglePrice = _this.detailJson.TypeandPrice[0][2];
+                __WEBPACK_IMPORTED_MODULE_0__dist_wx_components_vant_weapp_dist_toast_toast__["a" /* default */].clear();
             }
         });
     },
@@ -238,13 +261,16 @@ if (false) {(function () {
     data: {
         ID: null,
         scrWidth: 20, //屏幕原始尺寸
+        BIratio: 1,
         URL: 'http://192.168.0.110:5000/',
         show: false, //产品参数是否显示
-        detailJson: 666, //产品完整Json数据
+        detailJson: null, //产品完整Json数据
         tagSelected: null,
         tagSelectedName: '',
         tagSelectedMount: 1,
-        tagSelectedSinglePrice: 0
+        tagSelectedSinglePrice: 0,
+        tagSelectedOrSinglePrice: 0,
+        cartMount: 0
     },
 
     methods: {
@@ -267,13 +293,32 @@ if (false) {(function () {
             this.tagSelected = i;
             this.tagSelectedName = this.detailJson.TypeandPrice[this.tagSelected][0];
             this.tagSelectedSinglePrice = this.detailJson.TypeandPrice[this.tagSelected][1];
+            this.tagSelectedOrSinglePrice = this.detailJson.TypeandPrice[this.tagSelected][2];
             console.log('当前选择的是', this.detailJson.TypeandPrice[this.tagSelected]);
         },
         mountChange: function mountChange(event) {
             this.tagSelectedMount = event.mp.detail;
         },
         addToCart: function addToCart() {
-            __WEBPACK_IMPORTED_MODULE_0__dist_wx_components_vant_weapp_dist_toast_toast__["a" /* default */].success('加入成功！');
+            var productItem = {
+                Img: this.detailJson.BIs[0],
+                ID: this.ID,
+                Name: this.detailJson.Name,
+                Type: this.tagSelected,
+                TypeName: this.tagSelectedName,
+                TypeSinglePrice: this.tagSelectedSinglePrice,
+                TypeOrSinglePrice: this.tagSelectedOrSinglePrice,
+                Mount: this.tagSelectedMount,
+                TPrice: this.tagSelectedMount * this.tagSelectedSinglePrice,
+                TOrPrice: this.tagSelectedMount * this.tagSelectedOrSinglePrice
+            };
+            this.$store.dispatch('addToCart', productItem);
+            this.cartMount++;
+            __WEBPACK_IMPORTED_MODULE_0__dist_wx_components_vant_weapp_dist_toast_toast__["a" /* default */].success({
+                duration: 1000, // 持续展示 toast
+                message: '加入成功!'
+            });
+            console.log(this.$store.state);
         }
     }
 
@@ -281,7 +326,121 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 22:
+/***/ 49:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common_utils__ = __webpack_require__(50);
+
+const defaultOptions = {
+    type: 'text',
+    mask: false,
+    message: '',
+    show: true,
+    zIndex: 1000,
+    duration: 3000,
+    position: 'middle',
+    forbidClick: false,
+    loadingType: 'circular',
+    selector: '#van-toast'
+};
+let queue = [];
+let currentOptions = Object.assign({}, defaultOptions);
+function parseOptions(message) {
+    return Object(__WEBPACK_IMPORTED_MODULE_0__common_utils__["a" /* isObj */])(message) ? message : { message };
+}
+function getContext() {
+    const pages = getCurrentPages();
+    return pages[pages.length - 1];
+}
+function Toast(toastOptions) {
+    const options = Object.assign({}, currentOptions, parseOptions(toastOptions));
+    const context = options.context || getContext();
+    const toast = context.selectComponent(options.selector);
+    if (!toast) {
+        console.warn('未找到 van-toast 节点，请确认 selector 及 context 是否正确');
+        return;
+    }
+    delete options.context;
+    delete options.selector;
+    toast.clear = () => {
+        toast.set({ show: false });
+        if (options.onClose) {
+            options.onClose();
+        }
+    };
+    queue.push(toast);
+    toast.set(options);
+    clearTimeout(toast.timer);
+    if (options.duration > 0) {
+        toast.timer = setTimeout(() => {
+            toast.clear();
+            queue = queue.filter(item => item !== toast);
+        }, options.duration);
+    }
+    return toast;
+}
+const createMethod = (type) => (options) => Toast(Object.assign({ type }, parseOptions(options)));
+Toast.loading = createMethod('loading');
+Toast.success = createMethod('success');
+Toast.fail = createMethod('fail');
+Toast.clear = () => {
+    queue.forEach(toast => {
+        toast.clear();
+    });
+    queue = [];
+};
+Toast.setDefaultOptions = (options) => {
+    Object.assign(currentOptions, options);
+};
+Toast.resetDefaultOptions = () => {
+    currentOptions = Object.assign({}, defaultOptions);
+};
+/* harmony default export */ __webpack_exports__["a"] = (Toast);
+
+
+/***/ }),
+
+/***/ 50:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export isDef */
+/* harmony export (immutable) */ __webpack_exports__["a"] = isObj;
+/* unused harmony export isNumber */
+/* unused harmony export range */
+/* unused harmony export nextTick */
+/* unused harmony export getSystemInfoSync */
+function isDef(value) {
+    return value !== undefined && value !== null;
+}
+function isObj(x) {
+    const type = typeof x;
+    return x !== null && (type === 'object' || type === 'function');
+}
+function isNumber(value) {
+    return /^\d+$/.test(value);
+}
+function range(num, min, max) {
+    return Math.min(Math.max(num, min), max);
+}
+function nextTick(fn) {
+    setTimeout(() => {
+        fn();
+    }, 1000 / 30);
+}
+let systemInfo = null;
+function getSystemInfoSync() {
+    if (systemInfo == null) {
+        systemInfo = wx.getSystemInfoSync();
+    }
+    return systemInfo;
+}
+
+
+/***/ }),
+
+/***/ 51:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -289,7 +448,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   return _c('div', [_c('swiper', {
     staticClass: "swiper",
     style: ({
-      height: _vm.scrWidth / _vm.detailJson.BIratio + 'px'
+      height: _vm.scrWidth / _vm.BIratio + 'px'
     }),
     attrs: {
       "indicator-dots": "true"
@@ -312,9 +471,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "priceText"
   }, [_c('p', {
     staticClass: "price"
-  }, [_vm._v("￥" + _vm._s(_vm.tagSelectedSinglePrice))]), _vm._v(" "), (_vm.detailJson.orprice) ? _c('span', {
+  }, [_vm._v("￥" + _vm._s(_vm.tagSelectedSinglePrice))]), _vm._v(" "), _c('span', {
     staticClass: "orprice"
-  }, [_vm._v("原价￥" + _vm._s(_vm.detailJson.orprice))]) : _vm._e()], 1), _vm._v(" "), _c('h1', {
+  }, [_vm._v("原价￥" + _vm._s(_vm.tagSelectedOrSinglePrice))])], 1), _vm._v(" "), _c('h1', {
     staticClass: "title"
   }, [_vm._v("    " + _vm._s(_vm.detailJson.Name))]), _vm._v(" "), _c('div', _vm._l((_vm.detailJson.tags), function(item, index) {
     return (_vm.detailJson.tags) ? _c('div', {
@@ -480,7 +639,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "icon": "cart-o",
       "text": "购物车",
-      "info": "5",
+      "info": _vm.cartMount == 0 ? null : _vm.cartMount,
       "eventid": '4',
       "mpcomid": '12'
     },
@@ -504,7 +663,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   })], 1), _vm._v(" "), _c('div', {
     staticClass: "lastTip"
-  }, [_vm._v("亲！到底了油！^-^")]), _vm._v(" "), _c('van-toast', {
+  }, [_vm._v("亲！没了油！^-^")]), _vm._v(" "), _c('van-toast', {
     attrs: {
       "id": "van-toast",
       "mpcomid": '16'
@@ -522,120 +681,6 @@ if (false) {
   }
 }
 
-/***/ }),
-
-/***/ 42:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common_utils__ = __webpack_require__(43);
-
-const defaultOptions = {
-    type: 'text',
-    mask: false,
-    message: '',
-    show: true,
-    zIndex: 1000,
-    duration: 3000,
-    position: 'middle',
-    forbidClick: false,
-    loadingType: 'circular',
-    selector: '#van-toast'
-};
-let queue = [];
-let currentOptions = Object.assign({}, defaultOptions);
-function parseOptions(message) {
-    return Object(__WEBPACK_IMPORTED_MODULE_0__common_utils__["a" /* isObj */])(message) ? message : { message };
-}
-function getContext() {
-    const pages = getCurrentPages();
-    return pages[pages.length - 1];
-}
-function Toast(toastOptions) {
-    const options = Object.assign({}, currentOptions, parseOptions(toastOptions));
-    const context = options.context || getContext();
-    const toast = context.selectComponent(options.selector);
-    if (!toast) {
-        console.warn('未找到 van-toast 节点，请确认 selector 及 context 是否正确');
-        return;
-    }
-    delete options.context;
-    delete options.selector;
-    toast.clear = () => {
-        toast.set({ show: false });
-        if (options.onClose) {
-            options.onClose();
-        }
-    };
-    queue.push(toast);
-    toast.set(options);
-    clearTimeout(toast.timer);
-    if (options.duration > 0) {
-        toast.timer = setTimeout(() => {
-            toast.clear();
-            queue = queue.filter(item => item !== toast);
-        }, options.duration);
-    }
-    return toast;
-}
-const createMethod = (type) => (options) => Toast(Object.assign({ type }, parseOptions(options)));
-Toast.loading = createMethod('loading');
-Toast.success = createMethod('success');
-Toast.fail = createMethod('fail');
-Toast.clear = () => {
-    queue.forEach(toast => {
-        toast.clear();
-    });
-    queue = [];
-};
-Toast.setDefaultOptions = (options) => {
-    Object.assign(currentOptions, options);
-};
-Toast.resetDefaultOptions = () => {
-    currentOptions = Object.assign({}, defaultOptions);
-};
-/* harmony default export */ __webpack_exports__["a"] = (Toast);
-
-
-/***/ }),
-
-/***/ 43:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export isDef */
-/* harmony export (immutable) */ __webpack_exports__["a"] = isObj;
-/* unused harmony export isNumber */
-/* unused harmony export range */
-/* unused harmony export nextTick */
-/* unused harmony export getSystemInfoSync */
-function isDef(value) {
-    return value !== undefined && value !== null;
-}
-function isObj(x) {
-    const type = typeof x;
-    return x !== null && (type === 'object' || type === 'function');
-}
-function isNumber(value) {
-    return /^\d+$/.test(value);
-}
-function range(num, min, max) {
-    return Math.min(Math.max(num, min), max);
-}
-function nextTick(fn) {
-    setTimeout(() => {
-        fn();
-    }, 1000 / 30);
-}
-let systemInfo = null;
-function getSystemInfoSync() {
-    if (systemInfo == null) {
-        systemInfo = wx.getSystemInfoSync();
-    }
-    return systemInfo;
-}
-
-
 /***/ })
 
-},[17]);
+},[45]);

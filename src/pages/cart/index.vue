@@ -1,9 +1,7 @@
 <template>
   <div>
 
-
-
-    <div class="card">
+    <div class="card" v-for="(item,index) in ALL" wx:key="index">
 
       <div class="checkBox">
         <van-checkbox class='checkBoxContent' :value="allCheck" @change="onChange"></van-checkbox>
@@ -11,160 +9,16 @@
 
       <div class="product">
         <van-card
-          tag="New"
-          price="10.00"
-          origin-price="20.00"
-          title="枝胡原木抽纸3层24包正向之母"
-          desc="枝胡原木抽纸3层24包正向"
-          :thumb="imageURL"
+          :tag="index===ALL.length - 1 ? 'New':''"
+          :price="item.TPrice"
+          :origin-price="item.TOrPrice"
+          :title="item.Name"
+          :desc="item.TypeName"
+          :thumb="URL + '/products/' + item.ID +'/BI/' + item.Img"
         >
           <view slot="bottom">
             <div class="number">
-              <van-stepper :value="1"/>
-            </div>
-          </view>
-        </van-card>
-      </div>
-
-    </div>
-    <div class="card">
-
-      <div class="checkBox">
-        <van-checkbox class='checkBoxContent' :value="allCheck" @change="onChange"></van-checkbox>
-      </div>
-
-      <div class="product">
-        <van-card
-          tag="New"
-          price="10.00"
-          origin-price="20.00"
-          title="枝胡原木抽纸3层24包正向之母"
-          desc="枝胡原木抽纸3层24包正向"
-          :thumb="imageURL"
-        >
-          <view slot="bottom">
-            <div class="number">
-              <van-stepper :value="1"/>
-            </div>
-          </view>
-        </van-card>
-      </div>
-
-    </div>
-    <div class="card">
-
-      <div class="checkBox">
-        <van-checkbox class='checkBoxContent' :value="allCheck" @change="onChange"></van-checkbox>
-      </div>
-
-      <div class="product">
-        <van-card
-          tag="New"
-          price="10.00"
-          origin-price="20.00"
-          title="枝胡原木抽纸3层24包正向之母"
-          desc="枝胡原木抽纸3层24包正向"
-          :thumb="imageURL"
-        >
-          <view slot="bottom">
-            <div class="number">
-              <van-stepper :value="1"/>
-            </div>
-          </view>
-        </van-card>
-      </div>
-
-    </div>
-    <div class="card">
-
-      <div class="checkBox">
-        <van-checkbox class='checkBoxContent' :value="allCheck" @change="onChange"></van-checkbox>
-      </div>
-
-      <div class="product">
-        <van-card
-          tag="New"
-          price="10.00"
-          origin-price="20.00"
-          title="枝胡原木抽纸3层24包正向之母"
-          desc="枝胡原木抽纸3层24包正向"
-          :thumb="imageURL"
-        >
-          <view slot="bottom">
-            <div class="number">
-              <van-stepper :value="1"/>
-            </div>
-          </view>
-        </van-card>
-      </div>
-
-    </div>
-    <div class="card">
-
-      <div class="checkBox">
-        <van-checkbox class='checkBoxContent' :value="allCheck" @change="onChange"></van-checkbox>
-      </div>
-
-      <div class="product">
-        <van-card
-          tag="New"
-          price="10.00"
-          origin-price="20.00"
-          title="枝胡原木抽纸3层24包正向之母"
-          desc="枝胡原木抽纸3层24包正向"
-          :thumb="imageURL"
-        >
-          <view slot="bottom">
-            <div class="number">
-              <van-stepper :value="1"/>
-            </div>
-          </view>
-        </van-card>
-      </div>
-
-    </div>
-    <div class="card">
-
-      <div class="checkBox">
-        <van-checkbox class='checkBoxContent' :value="allCheck" @change="onChange"></van-checkbox>
-      </div>
-
-      <div class="product">
-        <van-card
-          tag="New"
-          price="10.00"
-          origin-price="20.00"
-          title="枝胡原木抽纸3层24包正向之母"
-          desc="枝胡原木抽纸3层24包正向"
-          :thumb="imageURL"
-        >
-          <view slot="bottom">
-            <div class="number">
-              <van-stepper :value="1"/>
-            </div>
-          </view>
-        </van-card>
-      </div>
-
-    </div>
-    <div class="card">
-
-      <div class="checkBox">
-        <van-checkbox class='checkBoxContent' :value="allCheck" @change="onChange"></van-checkbox>
-      </div>
-
-      <div class="product">
-        <van-card
-          tag="New"
-          price="10.00"
-          origin-price="20.00"
-          title="枝胡原木抽纸3层24包正向之母"
-          desc="枝胡原木抽纸3层24包正向"
-          :thumb="imageURL"
-        >
-          <view slot="bottom">
-            <div class="number">
-              <van-stepper :value="1"/>
+              <van-stepper min='0' :value="item.Mount" @change="stepChange($event,index)"/>
             </div>
           </view>
         </van-card>
@@ -173,6 +27,7 @@
     </div>
 
 
+    <!--    //底部-->
     <div>
       <van-submit-bar
         :price="3050"
@@ -188,6 +43,7 @@
     </div>
 
     <div class="footSpace">亲，到底了油！^-^ </div>
+    <van-dialog id="van-dialog" />
 
 
   </div>
@@ -195,11 +51,17 @@
 
 
 <script>
+    import Dialog from '../../../dist/wx/components/vant-weapp/dist/dialog/dialog';
 
   export default {
-
+      onLoad:function(){
+          this.ALL = this.$store.state.cart;
+          console.log(this.ALL);
+      },
     data () {
       return {
+          URL:'http://192.168.0.110:5000/',
+          ALL:null,
         allCheck: true,
         imageURL: 'https://img.yzcdn.cn/vant/t-thirt.jpg'
       }
@@ -215,7 +77,27 @@
     wx.navigateTo({
       url: '/pages/pay/main',
     })
-  }
+  },
+      stepChange:function(event,index){
+          console.log(this.ALL);
+          let mount = event.mp.detail;
+          this.ALL[index].TPrice = mount * this.ALL[index].TypeSinglePrice;
+          this.ALL[index].TOrPrice = mount * this.ALL[index].TypeOrSinglePrice;
+          this.ALL[index].Mount = mount;
+          console.log('步数改变');
+          console.log(event);
+
+          if (mount===0){
+              Dialog.confirm({
+                  title: '确认删除？',
+                  message: '当前商品总数已为 0 , 是否删除此项？'
+              }).then(() => {
+                  console.log('点击了确认');
+              }).catch(() => {
+                  console.log('点击了取消');
+              });
+          }
+      }
     },
 
   }
