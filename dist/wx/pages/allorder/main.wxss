@@ -1,0 +1,17 @@
+
+.card {
+  width: 95%;
+  margin: 10rpx auto;
+  border-radius: 10rpx;
+  box-shadow: 4rpx 4rpx 10rpx #c7c6be;
+  overflow: hidden;
+  background-color: #fafafa;
+}
+.number {
+  float: right;
+}
+.footSpace {
+  width: 100%;
+  height: 90rpx;
+  text-align: center;
+}

@@ -1,12 +1,14 @@
 {
   "pages": [
 
+    "pages/allorder/main",
+    "pages/personal/main",
     "pages/main/main",
     "pages/details/main",
     "pages/activity/main",
 
     "pages/cart/main",
-    "pages/personal/main",
+
     "pages/pay/main"
   ],
   "window": {

@@ -54,10 +54,11 @@
 
 
 <script>
-    import Dialog from '../../../dist/wx/components/vant-weapp/dist/dialog/dialog';
+  import Dialog from '../../../dist/wx/components/vant-weapp/dist/dialog/dialog';
+  import Moment from 'moment';
 
   export default {
-      onLoad:function(){
+      onShow:function(){
           this.checkArray = [];
           this.ALL = this.$store.state.cart;
           for (let i=0;i<this.ALL.length;i++){
@@ -79,13 +80,32 @@
         console.log(this.allCheck)
         this.allCheck = !this.allCheck;
       },
-      toPay:() => {
-    console.log('点击了一下下')
-    console.log(wx)
-    wx.navigateTo({
-      url: '/pages/pay/main',
-    })
-  },
+      toPay:function() {
+          console.log('点击了一下下')
+          console.log(wx);
+
+          let order = Object;
+          order.ID = new Date().getTime();
+          order.createTime = Moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');
+          order.list = [];
+          order.payed = false;
+          order.tPrice = this.allPrice;
+          order.weID = this.$store.state.weID;
+          order.weName = this.$store.state.weName;
+
+
+          console.log(this.checkArray);
+          for (let i=0;i<this.checkArray.length;i++){
+              if (this.checkArray[i] === true){
+                  order.list.push(this.ALL[i]);
+              }
+          }
+          this.$store.dispatch('addToOrder',order);
+          this.$store.dispatch('modiAllCart',[]);
+          wx.redirectTo({
+            url: '/pages/pay/main',
+          })
+      },
       stepChange:function(event,index){
           console.log(this.ALL);
           let mount = event.mp.detail;
@@ -102,10 +122,14 @@
               }).then(() => {
                   console.log('点击了确认');
                   this.ALL.splice(index,1);
+                  this.checkArray.splice(index,1);
+                  this.$store.dispatch('modiAllCart',this.ALL);
               }).catch(() => {
                   console.log('点击了取消');
+                  this.$store.dispatch('modiAllCart',this.ALL);
               });
           }
+          this.$store.dispatch('modiAllCart',this.ALL);
       },
       checkSingle:function(index){
           this.checkArray.splice(index,1,!this.checkArray[index]);
@@ -167,7 +191,9 @@
     float: left
   }
   .number {
-    float: right;
+    position: absolute;
+    top: 55px;
+    right: 0px;
   }
   .allcheckBox{
     margin-left: 20rpx;

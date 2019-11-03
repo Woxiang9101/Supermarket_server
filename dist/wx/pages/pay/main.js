@@ -2,14 +2,14 @@ require("../../common/manifest.js")
 require("../../common/vendor.js")
 global.webpackJsonpMpvue([3],{
 
-/***/ 57:
+/***/ 197:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(198);
 
 
 
@@ -24,18 +24,18 @@ app.$mount();
 
 /***/ }),
 
-/***/ 58:
+/***/ 198:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_template_compiler_index_id_data_v_10363b9f_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_template_compiler_index_id_data_v_10363b9f_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(220);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(59)
+  __webpack_require__(199)
 }
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 
 /* template */
@@ -78,18 +78,22 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 59:
+/***/ 199:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 60:
+/***/ 200:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__area__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__dist_wx_components_vant_weapp_dist_dialog_dialog__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__area__ = __webpack_require__(219);
+
 //
 //
 //
@@ -197,206 +201,123 @@ if (false) {(function () {
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-  data: function data() {
-    return {
-      activeNames: ['cardList'],
-      username: 'woxiang',
-      phone: '13037586574',
-      message: '啦啦啦',
-      areaList: __WEBPACK_IMPORTED_MODULE_0__area__["a" /* default */],
-      show: false,
-      allCheck: true,
-      imageURL: 'https://img.yzcdn.cn/vant/t-thirt.jpg'
-    };
-  },
+    onShow: function onShow() {
+        console.log('onshow执行了');
+        var allOrders = this.$store.state.orders;
+        console.log('store中orders的数据为：', allOrders);
 
-  methods: {
-    onChange: function onChange(event) {
-      console.log(this.allCheck);
-      this.allCheck = !this.allCheck;
+        //当前展示始终为store.orders的最后一项，并且加入到orders中
+        this.orderIdex = allOrders.length - 1;
+        var indexItem = allOrders[this.orderIdex];
+        this.orders[this.orderIdex] = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default()({}, indexItem);
+        console.log('当前orders:', this.orders);
     },
-    showPopup: function showPopup() {
-      this.show = true;
+    data: function data() {
+        return {
+            orders: [],
+            orderIdex: 0,
+
+            consignee: '我想',
+            phone: '13037586574',
+            city: '',
+            address: '我的老嘎就住在那个屯',
+            message: '啦啦啦',
+            payed: false,
+
+            URL: 'http://192.168.0.110:5000/',
+            activeNames: ['cardList'],
+            areaList: __WEBPACK_IMPORTED_MODULE_2__area__["a" /* default */],
+            show: false,
+            allCheck: true,
+            imageURL: 'https://img.yzcdn.cn/vant/t-thirt.jpg'
+        };
     },
-    onClose: function onClose() {
-      this.show = false;
-    },
-    onChangeColl: function onChangeColl(event) {
-      console.log(this.activeNames[0]);
-      if (this.activeNames[0] === 'cardList') {
-        this.activeNames = ['0'];
-      } else {
-        this.activeNames = ['cardList'];
-      }
-    },
-    onClickButton: function onClickButton() {
-      wx.request({
-        url: 'http://192.168.0.110:5000', //仅为示例，并非真实的接口地址
-        success: function success(res) {
-          console.log(res.data);
+
+    methods: {
+        onChange: function onChange(event) {
+            console.log(this.allCheck);
+            this.allCheck = !this.allCheck;
+        },
+        showPopup: function showPopup() {
+            this.show = true;
+        },
+        popupClose: function popupClose() {
+            this.show = false;
+        },
+        onChangeColl: function onChangeColl(event) {
+            console.log(this.activeNames[0]);
+            if (this.activeNames[0] === 'cardList') {
+                this.activeNames = ['0'];
+            } else {
+                this.activeNames = ['cardList'];
+            }
+        },
+        onClickButton: function onClickButton() {
+            wx.request({
+                url: 'http://192.168.0.110:5000', //仅为示例，并非真实的接口地址
+                success: function success(res) {
+                    console.log(res.data);
+                }
+            });
+        },
+        pay: function pay() {
+            if (this.consignee && this.phone && this.city && this.address) {
+                this.orders[this.orderIdex].consignee = this.consignee;
+                this.orders[this.orderIdex].phone = this.phone;
+                this.orders[this.orderIdex].city = this.city;
+                this.orders[this.orderIdex].address = this.address;
+                this.orders[this.orderIdex].message = this.message;
+                this.orders[this.orderIdex].payed = this.payed;
+
+                this.$store.dispatch('modiAllOrder', this.orders);
+            } else {
+                __WEBPACK_IMPORTED_MODULE_1__dist_wx_components_vant_weapp_dist_dialog_dialog__["a" /* default */].alert({
+                    title: '信息未完善',
+                    message: '提示：请将收货信息填写完整，再进行支付！'
+                }).then(function () {
+                    // on close
+                });
+            }
+        },
+        fieldChange: function fieldChange(event, name) {
+            switch (name) {
+                case 'consignee':
+                    this.consignee = event.mp.detail;
+                    console.log('进入userName修改');
+                    break;
+                case 'phone':
+                    this.phone = event.mp.detail;
+                    console.log('进入userName修改');
+                    break;
+                case 'message':
+                    this.message = event.mp.detail;
+                    console.log('进入userName修改');
+                    break;
+                case 'address':
+                    this.address = event.mp.detail;
+                    console.log('进入userName修改');
+                    break;
+                default:
+                    break;
+            }
+        },
+        areaConfirm: function areaConfirm(event) {
+            console.log('点击了确认');
+            this.city = event.mp.detail.values[0].name + '  ' + event.mp.detail.values[1].name + '  ' + event.mp.detail.values[2].name + '  ';
+            this.popupClose();
         }
-      });
     }
-  }
 
 });
 
 /***/ }),
 
-/***/ 61:
+/***/ 219:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4443,7 +4364,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 62:
+/***/ 220:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4451,13 +4372,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   return _c('div', [_c('van-cell', {
     attrs: {
       "title": "订单编号",
-      "value": "201901546231346522",
+      "value": _vm.orders[_vm.orderIdex].ID,
       "mpcomid": '0'
     }
   }), _vm._v(" "), _c('van-cell', {
     attrs: {
       "title": "创建日期",
-      "value": "2018-10-19 14:58:26",
+      "value": _vm.orders[_vm.orderIdex].createTime,
       "mpcomid": '1'
     }
   }), _vm._v(" "), _c('van-cell-group', {
@@ -4466,24 +4387,39 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('van-field', {
     attrs: {
-      "value": _vm.username,
-      "label": "收货人姓名",
+      "required": "",
+      "value": _vm.consignee,
+      "label": "收件人",
       "placeholder": "请输入姓名",
+      "eventid": '0',
       "mpcomid": '2'
+    },
+    on: {
+      "change": function($event) {
+        _vm.fieldChange($event, 'consignee')
+      }
     }
   }), _vm._v(" "), _c('van-field', {
     attrs: {
+      "required": "",
       "value": _vm.phone,
       "label": "手机号",
       "placeholder": "请输入手机号",
-      "error-message": "手机号格式错误",
+      "eventid": '1',
       "mpcomid": '3'
+    },
+    on: {
+      "change": function($event) {
+        _vm.fieldChange($event, 'phone')
+      }
     }
   }), _vm._v(" "), _c('van-cell', {
     attrs: {
+      "required": "",
       "title": "选择收货地址",
+      "value": _vm.city,
       "is-link": "",
-      "eventid": '0',
+      "eventid": '2',
       "mpcomid": '4'
     },
     on: {
@@ -4495,25 +4431,39 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "closeable": "",
       "position": "bottom",
       "custom-style": "height: 40%",
-      "eventid": '1',
+      "eventid": '4',
       "mpcomid": '6'
     },
     on: {
-      "close": _vm.onClose
+      "close": _vm.popupClose
     }
   }, [_c('van-area', {
     attrs: {
       "area-list": _vm.areaList,
+      "eventid": '3',
       "mpcomid": '5'
+    },
+    on: {
+      "confirm": function($event) {
+        _vm.areaConfirm($event)
+      },
+      "cancel": _vm.popupClose
     }
   })], 1), _vm._v(" "), _c('van-field', {
     attrs: {
-      "value": _vm.message,
+      "required": "",
+      "value": _vm.address,
       "label": "详细地址",
       "type": "textarea",
       "placeholder": "请输入详细地址",
       "autosize": "",
+      "eventid": '5',
       "mpcomid": '7'
+    },
+    on: {
+      "change": function($event) {
+        _vm.fieldChange($event, 'address')
+      }
     }
   }), _vm._v(" "), _c('van-field', {
     attrs: {
@@ -4522,15 +4472,21 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "type": "textarea",
       "placeholder": "给店主留言",
       "autosize": "",
+      "eventid": '6',
       "mpcomid": '8'
+    },
+    on: {
+      "change": function($event) {
+        _vm.fieldChange($event, 'message')
+      }
     }
   })], 1), _vm._v(" "), _c('van-collapse', {
     attrs: {
       "value": _vm.activeNames,
       "clickable": true,
       "border": false,
-      "eventid": '2',
-      "mpcomid": '21'
+      "eventid": '7',
+      "mpcomid": '12'
     },
     on: {
       "change": _vm.onChangeColl
@@ -4539,202 +4495,49 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "title": "详情",
       "name": "cardList",
-      "mpcomid": '20'
-    }
-  }, [_c('div', {
-    staticClass: "card"
-  }, [_c('div', {
-    staticClass: "product"
-  }, [_c('van-card', {
-    attrs: {
-      "tag": "新年新气象",
-      "price": "10.00",
-      "origin-price": "20.00",
-      "title": "枝胡原木抽纸3层24包正向之母",
-      "desc": "枝胡原木抽纸3层24包正向",
-      "thumb": _vm.imageURL,
-      "mpcomid": '10'
-    }
-  }, [_c('view', {
-    slot: "bottom"
-  }, [_c('div', {
-    staticClass: "number"
-  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "card"
-  }, [_c('div', {
-    staticClass: "product"
-  }, [_c('van-card', {
-    attrs: {
-      "tag": "New",
-      "price": "10.00",
-      "origin-price": "20.00",
-      "title": "枝胡原木抽纸3层24包正向之母",
-      "desc": "枝胡原木抽纸3层24包正向",
-      "thumb": _vm.imageURL,
       "mpcomid": '11'
     }
-  }, [_c('view', {
-    slot: "bottom"
-  }, [_c('div', {
-    staticClass: "number"
-  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "card"
-  }, [_c('div', {
-    staticClass: "product"
-  }, [_c('van-card', {
-    attrs: {
-      "tag": "New",
-      "price": "10.00",
-      "origin-price": "20.00",
-      "title": "枝胡原木抽纸3层24包正向之母",
-      "desc": "枝胡原木抽纸3层24包正向",
-      "thumb": _vm.imageURL,
-      "mpcomid": '12'
-    }
-  }, [_c('view', {
-    slot: "bottom"
-  }, [_c('div', {
-    staticClass: "number"
-  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "card"
-  }, [_c('div', {
-    staticClass: "product"
-  }, [_c('van-card', {
-    attrs: {
-      "tag": "New",
-      "price": "10.00",
-      "origin-price": "20.00",
-      "title": "枝胡原木抽纸3层24包正向之母",
-      "desc": "枝胡原木抽纸3层24包正向",
-      "thumb": _vm.imageURL,
-      "mpcomid": '13'
-    }
-  }, [_c('view', {
-    slot: "bottom"
-  }, [_c('div', {
-    staticClass: "number"
-  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "card"
-  }, [_c('div', {
-    staticClass: "product"
-  }, [_c('van-card', {
-    attrs: {
-      "tag": "New",
-      "price": "10.00",
-      "origin-price": "20.00",
-      "title": "枝胡原木抽纸3层24包正向之母",
-      "desc": "枝胡原木抽纸3层24包正向",
-      "thumb": _vm.imageURL,
-      "mpcomid": '14'
-    }
-  }, [_c('view', {
-    slot: "bottom"
-  }, [_c('div', {
-    staticClass: "number"
-  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "card"
-  }, [_c('div', {
-    staticClass: "product"
-  }, [_c('van-card', {
-    attrs: {
-      "tag": "New",
-      "price": "10.00",
-      "origin-price": "20.00",
-      "title": "枝胡原木抽纸3层24包正向之母",
-      "desc": "枝胡原木抽纸3层24包正向",
-      "thumb": _vm.imageURL,
-      "mpcomid": '15'
-    }
-  }, [_c('view', {
-    slot: "bottom"
-  }, [_c('div', {
-    staticClass: "number"
-  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "card"
-  }, [_c('div', {
-    staticClass: "product"
-  }, [_c('van-card', {
-    attrs: {
-      "tag": "New",
-      "price": "10.00",
-      "origin-price": "20.00",
-      "title": "枝胡原木抽纸3层24包正向之母",
-      "desc": "枝胡原木抽纸3层24包正向",
-      "thumb": _vm.imageURL,
-      "mpcomid": '16'
-    }
-  }, [_c('view', {
-    slot: "bottom"
-  }, [_c('div', {
-    staticClass: "number"
-  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "card"
-  }, [_c('div', {
-    staticClass: "product"
-  }, [_c('van-card', {
-    attrs: {
-      "tag": "New",
-      "price": "10.00",
-      "origin-price": "20.00",
-      "title": "枝胡原木抽纸3层24包正向之母",
-      "desc": "枝胡原木抽纸3层24包正向",
-      "thumb": _vm.imageURL,
-      "mpcomid": '17'
-    }
-  }, [_c('view', {
-    slot: "bottom"
-  }, [_c('div', {
-    staticClass: "number"
-  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "card"
-  }, [_c('div', {
-    staticClass: "product"
-  }, [_c('van-card', {
-    attrs: {
-      "tag": "New",
-      "price": "10.00",
-      "origin-price": "20.00",
-      "title": "枝胡原木抽纸3层24包正向之母",
-      "desc": "枝胡原木抽纸3层24包正向",
-      "thumb": _vm.imageURL,
-      "mpcomid": '18'
-    }
-  }, [_c('view', {
-    slot: "bottom"
-  }, [_c('div', {
-    staticClass: "number"
-  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "card"
-  }, [_c('div', {
-    staticClass: "product"
-  }, [_c('van-card', {
-    attrs: {
-      "tag": "New",
-      "price": "10.00",
-      "origin-price": "20.00",
-      "title": "枝胡原木抽纸3层24包正向之母",
-      "desc": "枝胡原木抽纸3层24包正向",
-      "thumb": _vm.imageURL,
-      "mpcomid": '19'
-    }
-  }, [_c('view', {
-    slot: "bottom"
-  }, [_c('div', {
-    staticClass: "number"
-  }, [_vm._v("\n                x 1\n              ")])])])], 1)]), _vm._v(" "), _c('div', {
+  }, _vm._l((_vm.orders[_vm.orderIdex].list), function(item, index) {
+    return _c('div', {
+      staticClass: "card",
+      attrs: {
+        "wx:key": "index"
+      }
+    }, [_c('div', {
+      staticClass: "product"
+    }, [_c('van-card', {
+      attrs: {
+        "price": item.TPrice,
+        "origin-price": item.TOrPrice,
+        "title": item.Name,
+        "desc": item.TypeName,
+        "thumb": _vm.URL + '/products/' + item.ID + '/BI/' + item.Img,
+        "mpcomid": '10_' + index
+      }
+    }, [_c('view', {
+      slot: "bottom"
+    }, [_c('div', {
+      staticClass: "number"
+    }, [_vm._v("\n                x " + _vm._s(item.Mount) + "\n              ")])])])], 1)])
+  }))], 1), _vm._v(" "), _c('div', {
     staticClass: "footSpace"
-  })])], 1), _vm._v(" "), _c('div', [_c('van-submit-bar', {
+  }), _vm._v(" "), _c('div', [_c('van-submit-bar', {
     attrs: {
-      "price": 3050,
+      "price": _vm.orders[_vm.orderIdex].tPrice,
       "button-text": "微信支付",
       "tip": true,
-      "eventid": '3',
-      "mpcomid": '22'
+      "eventid": '8',
+      "mpcomid": '13'
     },
     on: {
-      "submit": _vm.onClickButton
+      "submit": _vm.pay
     }
-  })], 1)], 1)
+  })], 1), _vm._v(" "), _c('van-dialog', {
+    attrs: {
+      "id": "van-dialog",
+      "mpcomid": '14'
+    }
+  })], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -4749,4 +4552,4 @@ if (false) {
 
 /***/ })
 
-},[57]);
+},[197]);

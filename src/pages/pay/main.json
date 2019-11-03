@@ -10,7 +10,8 @@
     "van-area": "/components/vant-weapp/dist/area/index",
     "van-field": "/components/vant-weapp/dist/field/index",
     "van-collapse": "/components/vant-weapp/dist/collapse/index",
-    "van-collapse-item": "/components/vant-weapp/dist/collapse-item/index"
+    "van-collapse-item": "/components/vant-weapp/dist/collapse-item/index",
+    "van-dialog": "/components/vant-weapp/dist/dialog/index"
   },
   "navigationBarBackgroundColor": "#FF4444",
   "navigationBarTextStyle": "white",

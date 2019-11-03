@@ -1,7 +1,8 @@
 export default {
-  listTmp: [],
-  moviesArr: [],
 
-  //我自己的state
+  weID:1834250342,
+  weName:'我想',
+
   cart:[],
+  orders:[],
 }

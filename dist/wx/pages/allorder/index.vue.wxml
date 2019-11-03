@@ -1,0 +1,23 @@
+<template name="4ff6412d">
+  <view class="_div data-v-522b08cc">
+    <van-tabs sticky class="_van-tabs data-v-522b08cc">
+      <van-tab title="全部" class="_van-tab data-v-522b08cc">
+        <view class="_div data-v-522b08cc card" wx:key="index" wx:for="{{orders}}" wx:for-index="index" wx:for-item="item">
+          <view class="_div data-v-522b08cc product">
+            <van-card price="{{item.tPrice}}" title="{{item.list[0].Name + '... '}}" desc="{{item.list[0].TypeName + '...'}}" thumb="{{URL + '/products/' + item.list[0].ID +'/BI/' + item.list[0].Img}}" class="_van-card data-v-522b08cc">
+              <view slot="bottom" class="_view data-v-522b08cc">
+                <view class="_div data-v-522b08cc number"> x {{item.list.length}}
+                </view>
+              </view>
+            </van-card>
+          </view>
+        </view>
+      </van-tab>
+      <van-tab title="待付款" class="_van-tab data-v-522b08cc">内容 2</van-tab>
+      <van-tab title="待收货" class="_van-tab data-v-522b08cc">内容 3</van-tab>
+      <van-tab title="已完成" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_van-tab data-v-522b08cc">内容 4</van-tab>
+    </van-tabs>
+    <view class="_div data-v-522b08cc footSpace">亲，到底了油！^-^</view>
+    <van-dialog id="van-dialog" class="_van-dialog data-v-522b08cc"></van-dialog>
+  </view>
+</template>

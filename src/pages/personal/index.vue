@@ -12,22 +12,10 @@
     </div>
 
     <div class="cells">
-      <van-cell title="我的订单" is-link />
+      <van-cell title="我的订单" @click="toAllOrders" is-link />
       <van-cell title="我的地址" is-link />
     </div>
 
-
-    <!--    <img v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" alt="欢迎您"/>-->
-<!--    <p v-else>欢迎进入世界聊天室</p>-->
-<!--    <p v-if="userInfo.nickName">欢迎您 {{userInfo.nickName}}</p>-->
-
-<!--    &lt;!&ndash; 需要使用 button 来授权登录 &ndash;&gt;-->
-<!--    <button v-if="canIUse&&userInfo.nickName===null" open-type="getUserInfo"-->
-<!--            @getuserinfo="getUserInfo">授权登录</button>-->
-<!--    <view v-if="!canIUse">请升级微信版本</view>-->
-
-<!--    <button v-if="userInfo.nickName" type="primary" @click="gotoMain">进入世界聊天室</button>-->
-<!--    <mp-toptips v-once msg="授权成功！" type="success" :show="userInfo.nickName"></mp-toptips>-->
   </div>
 </template>
 
@@ -40,14 +28,9 @@
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
         userInfo: {
           nickName:null,
-          avatarUrl:'/static/tabbars/my.png'
+          avatarUrl:'/static/images/user.png'
         },
       }
-      // canIUse: wx.canIUse('button.open-type.getUserInfo'),
-      // userInfo: {
-      //   nickName:null,
-      //   avatarUrl:'/static/tabbars/my.png'
-      // },
     },
     onLoad: function () {
       // 查看是否授权
@@ -61,22 +44,26 @@
       })
     },
     methods: {
-      getUserInfo: function () {
-        wx.getUserInfo({
-          success: (res) => {
-            this.userInfo = res.userInfo;
-            console.log('获取用户信息，授权成功！');
-          },
-          fail: () => {
-            console.log('获取用户信息，授权失败！');
-          }
-        })
-      },
-      gotoMain:()=>{
-        wx.redirectTo({
-          url: '/pages/main/main'
-        })
-      }
+        getUserInfo: function () {
+          wx.getUserInfo({
+            success: (res) => {
+              this.userInfo = res.userInfo;
+              let weInfo = [];
+              weInfo[0] = 1834250342;
+              weInfo[1] = this.userInfo.nickName;
+              this.$store.dispatch('modiWeInfo',weInfo);
+              console.log('获取用户信息，授权成功！',this.$store);
+            },
+            fail: () => {
+              console.log('获取用户信息，授权失败！');
+            }
+          })
+        },
+        toAllOrders:function () {
+            wx.navigateTo({
+                url: '/pages/allorder/main'
+            })
+        }
     },
 
   }

@@ -2,14 +2,14 @@ require("../../common/manifest.js")
 require("../../common/vendor.js")
 global.webpackJsonpMpvue([4],{
 
-/***/ 63:
+/***/ 221:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(222);
 
 
 
@@ -24,18 +24,18 @@ app.$mount();
 
 /***/ }),
 
-/***/ 64:
+/***/ 222:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_template_compiler_index_id_data_v_624d30ff_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(224);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_template_compiler_index_id_data_v_624d30ff_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(225);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(65)
+  __webpack_require__(223)
 }
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 
 /* template */
@@ -78,29 +78,17 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 65:
+/***/ 223:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 66:
+/***/ 224:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -131,13 +119,8 @@ if (false) {(function () {
       canIUse: wx.canIUse('button.open-type.getUserInfo'),
       userInfo: {
         nickName: null,
-        avatarUrl: '/static/tabbars/my.png'
+        avatarUrl: '/static/images/user.png'
       }
-      // canIUse: wx.canIUse('button.open-type.getUserInfo'),
-      // userInfo: {
-      //   nickName:null,
-      //   avatarUrl:'/static/tabbars/my.png'
-      // },
     };
   },
 
@@ -161,16 +144,20 @@ if (false) {(function () {
       wx.getUserInfo({
         success: function success(res) {
           _this2.userInfo = res.userInfo;
-          console.log('获取用户信息，授权成功！');
+          var weInfo = [];
+          weInfo[0] = 1834250342;
+          weInfo[1] = _this2.userInfo.nickName;
+          _this2.$store.dispatch('modiWeInfo', weInfo);
+          console.log('获取用户信息，授权成功！', _this2.$store);
         },
         fail: function fail() {
           console.log('获取用户信息，授权失败！');
         }
       });
     },
-    gotoMain: function gotoMain() {
-      wx.redirectTo({
-        url: '/pages/main/main'
+    toAllOrders: function toAllOrders() {
+      wx.navigateTo({
+        url: '/pages/allorder/main'
       });
     }
   }
@@ -179,7 +166,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 67:
+/***/ 225:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -210,7 +197,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "title": "我的订单",
       "is-link": "",
+      "eventid": '1',
       "mpcomid": '0'
+    },
+    on: {
+      "click": _vm.toAllOrders
     }
   }), _vm._v(" "), _c('van-cell', {
     attrs: {
@@ -233,4 +224,4 @@ if (false) {
 
 /***/ })
 
-},[63]);
+},[221]);

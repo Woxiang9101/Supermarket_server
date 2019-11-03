@@ -163,6 +163,10 @@
               }
           })
       },
+      onShow:function(){
+          console.log('onShow');
+          this.cartMount = this.$store.state.cart.length;
+      },
 
     data:{
         ID:null,
@@ -226,7 +230,7 @@
             });
             console.log(this.$store.state);
         }
-    }
+    },
 
   }
 </script>

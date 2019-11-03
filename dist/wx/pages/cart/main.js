@@ -2,14 +2,14 @@ require("../../common/manifest.js")
 require("../../common/vendor.js")
 global.webpackJsonpMpvue([6],{
 
-/***/ 40:
+/***/ 180:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(181);
 
 
 
@@ -24,18 +24,18 @@ app.$mount();
 
 /***/ }),
 
-/***/ 41:
+/***/ 181:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_template_compiler_index_id_data_v_2cef4042_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_template_compiler_index_id_data_v_2cef4042_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(184);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(42)
+  __webpack_require__(182)
 }
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 
 /* template */
@@ -78,18 +78,20 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 42:
+/***/ 182:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 43:
+/***/ 183:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__dist_wx_components_vant_weapp_dist_dialog_dialog__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__dist_wx_components_vant_weapp_dist_dialog_dialog__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment__);
 //
 //
 //
@@ -145,11 +147,12 @@ if (false) {(function () {
 //
 //
 //
+
 
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-    onLoad: function onLoad() {
+    onShow: function onShow() {
         this.checkArray = [];
         this.ALL = this.$store.state.cart;
         for (var i = 0; i < this.ALL.length; i++) {
@@ -175,7 +178,25 @@ if (false) {(function () {
         toPay: function toPay() {
             console.log('点击了一下下');
             console.log(wx);
-            wx.navigateTo({
+
+            var order = Object;
+            order.ID = new Date().getTime();
+            order.createTime = __WEBPACK_IMPORTED_MODULE_1_moment___default()(Date.now()).format('YYYY-MM-DD HH:mm:ss');
+            order.list = [];
+            order.payed = false;
+            order.tPrice = this.allPrice;
+            order.weID = this.$store.state.weID;
+            order.weName = this.$store.state.weName;
+
+            console.log(this.checkArray);
+            for (var i = 0; i < this.checkArray.length; i++) {
+                if (this.checkArray[i] === true) {
+                    order.list.push(this.ALL[i]);
+                }
+            }
+            this.$store.dispatch('addToOrder', order);
+            this.$store.dispatch('modiAllCart', []);
+            wx.redirectTo({
                 url: '/pages/pay/main'
             });
         },
@@ -197,10 +218,14 @@ if (false) {(function () {
                 }).then(function () {
                     console.log('点击了确认');
                     _this.ALL.splice(index, 1);
+                    _this.checkArray.splice(index, 1);
+                    _this.$store.dispatch('modiAllCart', _this.ALL);
                 }).catch(function () {
                     console.log('点击了取消');
+                    _this.$store.dispatch('modiAllCart', _this.ALL);
                 });
             }
+            this.$store.dispatch('modiAllCart', this.ALL);
         },
         checkSingle: function checkSingle(index) {
             this.checkArray.splice(index, 1, !this.checkArray[index]);
@@ -235,7 +260,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 44:
+/***/ 184:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -332,75 +357,6 @@ if (false) {
   }
 }
 
-/***/ }),
-
-/***/ 77:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-let queue = [];
-function getContext() {
-    const pages = getCurrentPages();
-    return pages[pages.length - 1];
-}
-const Dialog = options => {
-    options = Object.assign({}, Dialog.currentOptions, options);
-    return new Promise((resolve, reject) => {
-        const context = options.context || getContext();
-        const dialog = context.selectComponent(options.selector);
-        delete options.context;
-        delete options.selector;
-        if (dialog) {
-            dialog.set(Object.assign({ onCancel: reject, onConfirm: resolve }, options));
-            queue.push(dialog);
-        }
-        else {
-            console.warn('未找到 van-dialog 节点，请确认 selector 及 context 是否正确');
-        }
-    });
-};
-Dialog.defaultOptions = {
-    show: true,
-    title: '',
-    message: '',
-    zIndex: 100,
-    overlay: true,
-    className: '',
-    customStyle: '',
-    asyncClose: false,
-    messageAlign: '',
-    transition: 'scale',
-    selector: '#van-dialog',
-    confirmButtonText: '确认',
-    cancelButtonText: '取消',
-    showConfirmButton: true,
-    showCancelButton: false,
-    closeOnClickOverlay: false,
-    confirmButtonOpenType: ''
-};
-Dialog.alert = Dialog;
-Dialog.confirm = options => Dialog(Object.assign({ showCancelButton: true }, options));
-Dialog.close = () => {
-    queue.forEach(dialog => {
-        dialog.close();
-    });
-    queue = [];
-};
-Dialog.stopLoading = () => {
-    queue.forEach(dialog => {
-        dialog.stopLoading();
-    });
-};
-Dialog.setDefaultOptions = options => {
-    Object.assign(Dialog.currentOptions, options);
-};
-Dialog.resetDefaultOptions = () => {
-    Dialog.currentOptions = Object.assign({}, Dialog.defaultOptions);
-};
-Dialog.resetDefaultOptions();
-/* harmony default export */ __webpack_exports__["a"] = (Dialog);
-
-
 /***/ })
 
-},[40]);
+},[180]);

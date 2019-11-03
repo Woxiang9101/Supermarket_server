@@ -26,7 +26,9 @@
   float: left;
 }
 .number {
-  float: right;
+  position: absolute;
+  top: 110rpx;
+  right: 0;
 }
 .allcheckBox {
   margin-left: 20rpx;
