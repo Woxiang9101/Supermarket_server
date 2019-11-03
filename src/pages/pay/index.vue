@@ -64,7 +64,7 @@
 
         <div class="card" v-for="(item,index) in orders[orderIdex].list"
              wx:key="index">
-          <div class="product">
+          <div class="product" @click="todetail(item.ID)">
             <van-card
               :price="item.TPrice"
               :origin-price="item.TOrPrice"
@@ -110,13 +110,23 @@
   import areaList from './area'
 
   export default {
+      onLoad:function(options){
+          console.log('当前的订单的ID为：', options.ID);
+          this.ID = options.ID;
+      },
       onShow:function(){
           console.log('onshow执行了');
+          this.orderIdex = -1;
           let allOrders = this.$store.state.orders;
           console.log('store中orders的数据为：',allOrders);
 
-          //当前展示始终为store.orders的最后一项，并且加入到orders中
-          this.orderIdex = allOrders.length - 1;
+          for(let i = 0;i<allOrders.length ;i++){
+              if(allOrders[i].ID == this.ID){
+                  this.orderIdex = i;
+              }
+          }
+          console.log('检索到的orderIndex为：', this.orderIdex);
+
           let indexItem = allOrders[this.orderIdex];
           this.orders[this.orderIdex] = Object.assign({},indexItem);
           console.log('当前orders:',this.orders);
@@ -126,6 +136,7 @@
             orders:[],
             orderIdex:0,
 
+            ID:-1,
             consignee: '我想',
             phone: '13037586574',
             city:'',
@@ -142,6 +153,12 @@
         }
       },
       methods: {
+          todetail:(ID) => {
+              console.log('在pay页面点击了跳转到详情');
+              wx.navigateTo({
+                  url: '/pages/details/main?ID=' + ID,
+              })
+          },
           onChange: function (event) {
             console.log(this.allCheck)
             this.allCheck = !this.allCheck
@@ -175,7 +192,8 @@
                   this.orders[this.orderIdex].city = this.city;
                   this.orders[this.orderIdex].address = this.address;
                   this.orders[this.orderIdex].message = this.message;
-                  this.orders[this.orderIdex].payed = this.payed;
+                  //暂时将是否付款payed设置为当点击了付款按钮就为true
+                  this.orders[this.orderIdex].payed = true;
 
                   this.$store.dispatch('modiAllOrder',this.orders);
               } else{

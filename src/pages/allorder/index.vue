@@ -4,8 +4,8 @@
     <van-tabs sticky>
 
       <van-tab title="全部">
-
         <div class="card" v-for="(item,index) in orders"
+             @click="toOrderDetail(item.ID)"
              wx:key="index">
           <div class="product">
             <van-card
@@ -22,16 +22,74 @@
             </van-card>
           </div>
         </div>
-
       </van-tab>
 
-      <van-tab title="待付款">内容 2</van-tab>
-      <van-tab title="待收货">内容 3</van-tab>
-      <van-tab title="已完成" @click="tomain">内容 4</van-tab>
+      <van-tab title="待付款">
+        <div class="card" v-for="(item,index) in waitPayOrders"
+             @click="toOrderDetail(item.ID)"
+             wx:key="index">
+          <div class="product">
+            <van-card
+              :price="item.tPrice"
+              :title="item.list[0].Name + '... '"
+              :desc="item.list[0].TypeName + '...'"
+              :thumb="URL + '/products/' + item.list[0].ID +'/BI/' + item.list[0].Img"
+            >
+              <view slot="bottom">
+                <div class="number">
+                  x {{item.list.length}}
+                </div>
+              </view>
+            </van-card>
+          </div>
+        </div>
+      </van-tab>
+
+      <van-tab title="待收货">
+        <div class="card" v-for="(item,index) in hasPayOrders"
+             @click="toOrderDetail(item.ID)"
+             wx:key="index">
+          <div class="product">
+            <van-card
+              :price="item.tPrice"
+              :title="item.list[0].Name + '... '"
+              :desc="item.list[0].TypeName + '...'"
+              :thumb="URL + '/products/' + item.list[0].ID +'/BI/' + item.list[0].Img"
+            >
+              <view slot="bottom">
+                <div class="number">
+                  x {{item.list.length}}
+                </div>
+              </view>
+            </van-card>
+          </div>
+        </div>
+      </van-tab>
+
+      <van-tab title="已完成">
+        <div class="card" v-for="(item,index) in endOrders"
+             @click="toOrderDetail(item.ID)"
+             wx:key="index">
+          <div class="product">
+            <van-card
+              :price="item.tPrice"
+              :title="item.list[0].Name + '... '"
+              :desc="item.list[0].TypeName + '...'"
+              :thumb="URL + '/products/' + item.list[0].ID +'/BI/' + item.list[0].Img"
+            >
+              <view slot="bottom">
+                <div class="number">
+                  x {{item.list.length}}
+                </div>
+              </view>
+            </van-card>
+          </div>
+        </div>
+      </van-tab>
     </van-tabs>
 
 
-    <div class="footSpace">亲，到底了油！^-^</div>
+    <div class="footSpace"></div>
     <van-dialog id="van-dialog"/>
 
 
@@ -45,15 +103,15 @@
 
     export default {
         onShow: function () {
+            this.orders = [];
             console.log('onshow执行了');
             let allOrders = this.$store.state.orders;
 
-            //当前展示始终为store.orders的最后一项，并且加入到orders中
             for(let i=0;i<allOrders.length;i++){
                 let indexItem = allOrders[i];
-                this.orders.push(Object.assign({},indexItem));
+                this.orders[i] = Object.assign({},indexItem);
             }
-            console.log('当前orders:',this.orders);
+            console.log('onshow时orders为:',this.orders);
 
         },
         data: {
@@ -61,16 +119,31 @@
             orders:[],
         },
         methods: {
-
-            tomain: function () {
-                console.log('去main');
-                wx.switchTab({
-                    url: '/pages/main/main'
+            toOrderDetail:(ID) => {
+                console.log('在总订单页面点击了跳转到订单详情');
+                wx.navigateTo({
+                    url: '/pages/pay/main?ID=' + ID,
                 })
-            }
+            },
 
         },
-        computed: {},
+        computed: {
+            waitPayOrders:function () {
+                return this.orders.filter(function (item,index){
+                    return item.payed === false;
+                })
+            },
+            hasPayOrders:function () {
+                return this.orders.filter(function (item,index){
+                    return item.payed === true;
+                })
+            },
+            endOrders:function () {
+                return this.orders.filter(function (item,index){
+                    return item.end === true;
+                })
+            }
+        },
 
     }
 </script>

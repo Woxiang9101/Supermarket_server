@@ -19,15 +19,15 @@ var MODI_WEINFO = 'modi_weinfo';
 
 /***/ }),
 
-/***/ 145:
+/***/ 146:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_stroe__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__App__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_stroe__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__App__ = __webpack_require__(165);
 
 
 
@@ -43,17 +43,17 @@ app.$mount();
 
 /***/ }),
 
-/***/ 146:
+/***/ 147:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__state__ = __webpack_require__(148);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mutations__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__getter__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__state__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mutations__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__getter__ = __webpack_require__(164);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__getter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__getter__);
 
 
@@ -74,7 +74,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 
 /***/ }),
 
-/***/ 148:
+/***/ 149:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -89,7 +89,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 
 /***/ }),
 
-/***/ 149:
+/***/ 150:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -126,32 +126,35 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 
 /***/ }),
 
-/***/ 150:
+/***/ 151:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty__ = __webpack_require__(152);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mutation_type__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_assign__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_assign___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_assign__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mutation_type__ = __webpack_require__(10);
+
 
 
 var _ADDTO_CART$MODIALL_C;
 
 
 
-/* harmony default export */ __webpack_exports__["a"] = (_ADDTO_CART$MODIALL_C = {}, __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ADDTO_CART$MODIALL_C, __WEBPACK_IMPORTED_MODULE_1__mutation_type__["a" /* ADDTO_CART */], function (state, item) {
+/* harmony default export */ __webpack_exports__["a"] = (_ADDTO_CART$MODIALL_C = {}, __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ADDTO_CART$MODIALL_C, __WEBPACK_IMPORTED_MODULE_2__mutation_type__["a" /* ADDTO_CART */], function (state, item) {
   state.cart.push(item);
   console.log('购物车增加:', state);
-}), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ADDTO_CART$MODIALL_C, __WEBPACK_IMPORTED_MODULE_1__mutation_type__["c" /* MODIALL_CART */], function (state, data) {
+}), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ADDTO_CART$MODIALL_C, __WEBPACK_IMPORTED_MODULE_2__mutation_type__["c" /* MODIALL_CART */], function (state, data) {
   state.cart = data;
   console.log('购物车执行了修改，修改后的数据为:', state.cart);
-}), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ADDTO_CART$MODIALL_C, __WEBPACK_IMPORTED_MODULE_1__mutation_type__["b" /* ADDTO_ORDER */], function (state, data) {
-  state.orders.push(data);
+}), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ADDTO_CART$MODIALL_C, __WEBPACK_IMPORTED_MODULE_2__mutation_type__["b" /* ADDTO_ORDER */], function (state, data) {
+  state.orders[state.orders.length] = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_assign___default()({}, data);
   console.log('订单增加', state.orders);
-}), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ADDTO_CART$MODIALL_C, __WEBPACK_IMPORTED_MODULE_1__mutation_type__["d" /* MODIALL_ORDER */], function (state, data) {
+}), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ADDTO_CART$MODIALL_C, __WEBPACK_IMPORTED_MODULE_2__mutation_type__["d" /* MODIALL_ORDER */], function (state, data) {
   state.orders = data;
   console.log('订单执行了修改', state.orders);
-}), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ADDTO_CART$MODIALL_C, __WEBPACK_IMPORTED_MODULE_1__mutation_type__["e" /* MODI_WEINFO */], function (state, data) {
+}), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_ADDTO_CART$MODIALL_C, __WEBPACK_IMPORTED_MODULE_2__mutation_type__["e" /* MODI_WEINFO */], function (state, data) {
   state.weID = data[0];
   state.weName = data[1];
   console.log('用户信息修改为', state.weID, state.weName);
@@ -159,22 +162,22 @@ var _ADDTO_CART$MODIALL_C;
 
 /***/ }),
 
-/***/ 163:
+/***/ 164:
 /***/ (function(module, exports) {
 
 
 
 /***/ }),
 
-/***/ 164:
+/***/ 165:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(168);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(165)
+  __webpack_require__(166)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -218,14 +221,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 165:
+/***/ 166:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 167:
+/***/ 168:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -234,4 +237,4 @@ if (false) {(function () {
 
 /***/ })
 
-},[145]);
+},[146]);

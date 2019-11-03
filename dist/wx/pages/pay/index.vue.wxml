@@ -12,10 +12,10 @@
       <van-field required bindchange="handleProxy" value="{{address}}" label="详细地址" type="textarea" placeholder="请输入详细地址" autosize data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_van-field data-v-10363b9f"></van-field>
       <van-field value="{{message}}" bindchange="handleProxy" label="留言" type="textarea" placeholder="给店主留言" autosize data-eventid="{{'6'}}" data-comkey="{{$k}}" class="_van-field data-v-10363b9f"></van-field>
     </van-cell-group>
-    <van-collapse value="{{activeNames}}" bindchange="handleProxy" clickable="{{true}}" border="{{false}}" data-eventid="{{'7'}}" data-comkey="{{$k}}" class="_van-collapse data-v-10363b9f">
+    <van-collapse value="{{activeNames}}" bindchange="handleProxy" clickable="{{true}}" border="{{false}}" data-eventid="{{'8'}}" data-comkey="{{$k}}" class="_van-collapse data-v-10363b9f">
       <van-collapse-item title="详情" name="cardList" class="_van-collapse-item data-v-10363b9f">
         <view class="_div data-v-10363b9f card" wx:key="index" wx:for="{{orders[orderIdex].list}}" wx:for-index="index" wx:for-item="item">
-          <view class="_div data-v-10363b9f product">
+          <view class="_div data-v-10363b9f product" bindtap="handleProxy" data-eventid="{{'7_'+index}}" data-comkey="{{$k}}">
             <van-card price="{{item.TPrice}}" origin-price="{{item.TOrPrice}}" title="{{item.Name}}" desc="{{item.TypeName}}" thumb="{{URL + '/products/' + item.ID +'/BI/' + item.Img}}" class="_van-card data-v-10363b9f">
               <view slot="bottom" class="_view data-v-10363b9f">
                 <view class="_div data-v-10363b9f number"> x {{item.Mount}}
@@ -28,7 +28,7 @@
     </van-collapse>
     <view class="_div data-v-10363b9f footSpace"></view>
     <view class="_div data-v-10363b9f">
-      <van-submit-bar price="{{orders[orderIdex].tPrice}}" button-text="微信支付" bindsubmit="handleProxy" tip="{{true}}" data-eventid="{{'8'}}" data-comkey="{{$k}}" class="_van-submit-bar data-v-10363b9f"></van-submit-bar>
+      <van-submit-bar price="{{orders[orderIdex].tPrice}}" button-text="微信支付" bindsubmit="handleProxy" tip="{{true}}" data-eventid="{{'9'}}" data-comkey="{{$k}}" class="_van-submit-bar data-v-10363b9f"></van-submit-bar>
     </view>
     <van-dialog id="van-dialog" class="_van-dialog data-v-10363b9f"></van-dialog>
   </view>

@@ -2,14 +2,14 @@ require("../../common/manifest.js")
 require("../../common/vendor.js")
 global.webpackJsonpMpvue([6],{
 
-/***/ 180:
+/***/ 198:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(199);
 
 
 
@@ -24,16 +24,16 @@ app.$mount();
 
 /***/ }),
 
-/***/ 181:
+/***/ 199:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(183);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_template_compiler_index_id_data_v_2cef4042_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_template_compiler_index_id_data_v_2cef4042_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(202);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(182)
+  __webpack_require__(200)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -78,14 +78,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 182:
+/***/ 200:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 183:
+/***/ 201:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -147,18 +147,20 @@ if (false) {(function () {
 //
 //
 //
+//
 
 
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     onShow: function onShow() {
+        console.log('购物车onshow时orders为：', this.$store.state.orders);
         this.checkArray = [];
         this.ALL = this.$store.state.cart;
         for (var i = 0; i < this.ALL.length; i++) {
             this.checkArray.push(true);
         }
-        console.log(this.ALL);
+        console.log('this.ALL为：', this.ALL);
     },
     data: function data() {
         return {
@@ -171,13 +173,19 @@ if (false) {(function () {
     },
 
     methods: {
+        todetail: function todetail(ID) {
+            console.log('点击了购物车条目');
+            wx.navigateTo({
+                url: '/pages/details/main?ID=' + ID
+            });
+        },
         onChange: function onChange(event) {
             console.log(this.allCheck);
             this.allCheck = !this.allCheck;
         },
-        toPay: function toPay() {
-            console.log('点击了一下下');
-            console.log(wx);
+        toCommit: function toCommit() {
+            console.log('点击了提交订单');
+            // console.log(this.$store.state.orders);
 
             var order = Object;
             order.ID = new Date().getTime();
@@ -188,7 +196,8 @@ if (false) {(function () {
             order.weID = this.$store.state.weID;
             order.weName = this.$store.state.weName;
 
-            console.log(this.checkArray);
+            console.log('for 循环之前', this.$store.state.orders);
+            // console.log(this.checkArray);
             for (var i = 0; i < this.checkArray.length; i++) {
                 if (this.checkArray[i] === true) {
                     order.list.push(this.ALL[i]);
@@ -197,7 +206,7 @@ if (false) {(function () {
             this.$store.dispatch('addToOrder', order);
             this.$store.dispatch('modiAllCart', []);
             wx.redirectTo({
-                url: '/pages/pay/main'
+                url: '/pages/pay/main?ID=' + order.ID
             });
         },
         stepChange: function stepChange(event, index) {
@@ -260,7 +269,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 184:
+/***/ 202:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -295,7 +304,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "title": item.Name,
         "desc": item.TypeName,
         "thumb": _vm.URL + '/products/' + item.ID + '/BI/' + item.Img,
+        "eventid": '2_' + index,
         "mpcomid": '2_' + index
+      },
+      on: {
+        "click": function($event) {
+          _vm.todetail(item.ID)
+        }
       }
     }, [_c('view', {
       slot: "bottom"
@@ -320,18 +335,18 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "button-text": "提交订单",
       "bind:submit": "onClickButton",
       "tip": true,
-      "eventid": '3',
+      "eventid": '4',
       "mpcomid": '4'
     },
     on: {
-      "submit": _vm.toPay
+      "submit": _vm.toCommit
     }
   }, [_c('div', {
     staticClass: "allcheckBox"
   }, [_c('van-checkbox', {
     attrs: {
       "value": _vm.allCheck,
-      "eventid": '2',
+      "eventid": '3',
       "mpcomid": '3'
     },
     on: {
@@ -339,7 +354,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_vm._v("全选")])], 1)])], 1), _vm._v(" "), _c('div', {
     staticClass: "footSpace"
-  }, [_vm._v("亲，到底了油！^-^ ")]), _vm._v(" "), _c('van-dialog', {
+  }), _vm._v(" "), _c('van-dialog', {
     attrs: {
       "id": "van-dialog",
       "mpcomid": '5'
@@ -359,4 +374,4 @@ if (false) {
 
 /***/ })
 
-},[180]);
+},[198]);

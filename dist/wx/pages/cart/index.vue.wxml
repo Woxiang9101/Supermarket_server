@@ -5,7 +5,7 @@
         <van-checkbox class="_van-checkbox data-v-2cef4042 checkBoxContent" value="{{checkArray[index]}}" bindchange="handleProxy" data-eventid="{{'0_'+index}}" data-comkey="{{$k}}"></van-checkbox>
       </view>
       <view class="_div data-v-2cef4042 product">
-        <van-card tag="{{index===ALL.length - 1 ? 'New':''}}" price="{{item.TPrice}}" origin-price="{{item.TOrPrice}}" title="{{item.Name}}" desc="{{item.TypeName}}" thumb="{{URL + '/products/' + item.ID +'/BI/' + item.Img}}" class="_van-card data-v-2cef4042">
+        <van-card bindtap="handleProxy" tag="{{index===ALL.length - 1 ? 'New':''}}" price="{{item.TPrice}}" origin-price="{{item.TOrPrice}}" title="{{item.Name}}" desc="{{item.TypeName}}" thumb="{{URL + '/products/' + item.ID +'/BI/' + item.Img}}" data-eventid="{{'2_'+index}}" data-comkey="{{$k}}" class="_van-card data-v-2cef4042">
           <view slot="bottom" class="_view data-v-2cef4042">
             <view class="_div data-v-2cef4042 number">
               <van-stepper min="0" value="{{item.Mount}}" bindchange="handleProxy" data-eventid="{{'1_'+index}}" data-comkey="{{$k}}" class="_van-stepper data-v-2cef4042"></van-stepper>
@@ -15,13 +15,13 @@
       </view>
     </view>
     <view class="_div data-v-2cef4042">
-      <van-submit-bar price="{{allPrice}}" button-text="提交订单" bind:submit="onClickButton" tip="{{true}}" bindsubmit="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_van-submit-bar data-v-2cef4042">
+      <van-submit-bar price="{{allPrice}}" button-text="提交订单" bind:submit="onClickButton" tip="{{true}}" bindsubmit="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_van-submit-bar data-v-2cef4042">
         <view class="_div data-v-2cef4042 allcheckBox">
-          <van-checkbox value="{{allCheck}}" bindchange="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_van-checkbox data-v-2cef4042">全选</van-checkbox>
+          <van-checkbox value="{{allCheck}}" bindchange="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_van-checkbox data-v-2cef4042">全选</van-checkbox>
         </view>
       </van-submit-bar>
     </view>
-    <view class="_div data-v-2cef4042 footSpace">亲，到底了油！^-^ </view>
+    <view class="_div data-v-2cef4042 footSpace"></view>
     <van-dialog id="van-dialog" class="_van-dialog data-v-2cef4042"></van-dialog>
   </view>
 </template>

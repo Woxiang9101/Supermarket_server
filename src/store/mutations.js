@@ -16,7 +16,7 @@ export default {
     console.log('购物车执行了修改，修改后的数据为:',state.cart);
   },
   [ADDTO_ORDER](state, data) {
-    state.orders.push(data);
+    state.orders[state.orders.length] = Object.assign({},data);
     console.log('订单增加',state.orders);
   },
   [MODIALL_ORDER](state, data) {

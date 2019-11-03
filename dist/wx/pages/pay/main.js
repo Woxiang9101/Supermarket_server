@@ -2,14 +2,14 @@ require("../../common/manifest.js")
 require("../../common/vendor.js")
 global.webpackJsonpMpvue([3],{
 
-/***/ 197:
+/***/ 215:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(216);
 
 
 
@@ -24,16 +24,16 @@ app.$mount();
 
 /***/ }),
 
-/***/ 198:
+/***/ 216:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(218);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_template_compiler_index_id_data_v_10363b9f_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_2_0_1_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(220);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(199)
+  __webpack_require__(217)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -78,18 +78,18 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 199:
+/***/ 217:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 200:
+/***/ 218:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__dist_wx_components_vant_weapp_dist_dialog_dialog__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__area__ = __webpack_require__(219);
@@ -206,13 +206,23 @@ if (false) {(function () {
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
+    onLoad: function onLoad(options) {
+        console.log('当前的订单的ID为：', options.ID);
+        this.ID = options.ID;
+    },
     onShow: function onShow() {
         console.log('onshow执行了');
+        this.orderIdex = -1;
         var allOrders = this.$store.state.orders;
         console.log('store中orders的数据为：', allOrders);
 
-        //当前展示始终为store.orders的最后一项，并且加入到orders中
-        this.orderIdex = allOrders.length - 1;
+        for (var i = 0; i < allOrders.length; i++) {
+            if (allOrders[i].ID == this.ID) {
+                this.orderIdex = i;
+            }
+        }
+        console.log('检索到的orderIndex为：', this.orderIdex);
+
         var indexItem = allOrders[this.orderIdex];
         this.orders[this.orderIdex] = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default()({}, indexItem);
         console.log('当前orders:', this.orders);
@@ -222,6 +232,7 @@ if (false) {(function () {
             orders: [],
             orderIdex: 0,
 
+            ID: -1,
             consignee: '我想',
             phone: '13037586574',
             city: '',
@@ -239,6 +250,12 @@ if (false) {(function () {
     },
 
     methods: {
+        todetail: function todetail(ID) {
+            console.log('在pay页面点击了跳转到详情');
+            wx.navigateTo({
+                url: '/pages/details/main?ID=' + ID
+            });
+        },
         onChange: function onChange(event) {
             console.log(this.allCheck);
             this.allCheck = !this.allCheck;
@@ -272,7 +289,8 @@ if (false) {(function () {
                 this.orders[this.orderIdex].city = this.city;
                 this.orders[this.orderIdex].address = this.address;
                 this.orders[this.orderIdex].message = this.message;
-                this.orders[this.orderIdex].payed = this.payed;
+                //暂时将是否付款payed设置为当点击了付款按钮就为true
+                this.orders[this.orderIdex].payed = true;
 
                 this.$store.dispatch('modiAllOrder', this.orders);
             } else {
@@ -4485,7 +4503,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "value": _vm.activeNames,
       "clickable": true,
       "border": false,
-      "eventid": '7',
+      "eventid": '8',
       "mpcomid": '12'
     },
     on: {
@@ -4504,7 +4522,15 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "wx:key": "index"
       }
     }, [_c('div', {
-      staticClass: "product"
+      staticClass: "product",
+      attrs: {
+        "eventid": '7_' + index
+      },
+      on: {
+        "click": function($event) {
+          _vm.todetail(item.ID)
+        }
+      }
     }, [_c('van-card', {
       attrs: {
         "price": item.TPrice,
@@ -4526,7 +4552,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "price": _vm.orders[_vm.orderIdex].tPrice,
       "button-text": "微信支付",
       "tip": true,
-      "eventid": '8',
+      "eventid": '9',
       "mpcomid": '13'
     },
     on: {
@@ -4552,4 +4578,4 @@ if (false) {
 
 /***/ })
 
-},[197]);
+},[215]);

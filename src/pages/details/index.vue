@@ -193,8 +193,7 @@
             console.log(this.scrWidth / this.detailJson.BIratio);
         },
         toCart: () => {
-            console.log('点击了一下下')
-            console.log(wx)
+            console.log('点击了加入购物车！')
             wx.navigateTo({
                 url: '/pages/cart/main',
             })

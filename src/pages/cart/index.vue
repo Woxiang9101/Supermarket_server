@@ -11,6 +11,7 @@
 
       <div class="product">
         <van-card
+          @click="todetail(item.ID)"
           :tag="index===ALL.length - 1 ? 'New':''"
           :price="item.TPrice"
           :origin-price="item.TOrPrice"
@@ -36,7 +37,7 @@
         button-text="提交订单"
         bind:submit="onClickButton"
         :tip="true"
-        @submit="toPay"
+        @submit="toCommit"
       >
         <div class="allcheckBox">
           <van-checkbox :value="allCheck"
@@ -45,7 +46,7 @@
       </van-submit-bar>
     </div>
 
-    <div class="footSpace">亲，到底了油！^-^ </div>
+    <div class="footSpace">  </div>
     <van-dialog id="van-dialog" />
 
 
@@ -59,12 +60,13 @@
 
   export default {
       onShow:function(){
+          console.log('购物车onshow时orders为：', this.$store.state.orders);
           this.checkArray = [];
           this.ALL = this.$store.state.cart;
           for (let i=0;i<this.ALL.length;i++){
               this.checkArray.push(true);
           }
-          console.log(this.ALL);
+          console.log('this.ALL为：',this.ALL);
       },
     data () {
       return {
@@ -76,13 +78,19 @@
       }
     },
     methods: {
+        todetail:(ID) => {
+            console.log('点击了购物车条目')
+            wx.navigateTo({
+                url: '/pages/details/main?ID=' + ID,
+            })
+        },
       onChange: function(event){
         console.log(this.allCheck)
         this.allCheck = !this.allCheck;
       },
-      toPay:function() {
-          console.log('点击了一下下')
-          console.log(wx);
+      toCommit:function() {
+          console.log('点击了提交订单')
+          // console.log(this.$store.state.orders);
 
           let order = Object;
           order.ID = new Date().getTime();
@@ -93,8 +101,8 @@
           order.weID = this.$store.state.weID;
           order.weName = this.$store.state.weName;
 
-
-          console.log(this.checkArray);
+          console.log('for 循环之前', this.$store.state.orders);
+          // console.log(this.checkArray);
           for (let i=0;i<this.checkArray.length;i++){
               if (this.checkArray[i] === true){
                   order.list.push(this.ALL[i]);
@@ -103,7 +111,7 @@
           this.$store.dispatch('addToOrder',order);
           this.$store.dispatch('modiAllCart',[]);
           wx.redirectTo({
-            url: '/pages/pay/main',
+            url: '/pages/pay/main?ID=' + order.ID,
           })
       },
       stepChange:function(event,index){
