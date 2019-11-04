@@ -205,7 +205,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }), _vm._v(" "), _c('van-cell', {
     attrs: {
-      "title": "我的地址",
+      "title": "超市简介",
       "is-link": "",
       "mpcomid": '1'
     }

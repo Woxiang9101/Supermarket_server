@@ -89,11 +89,19 @@ if (false) {(function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__dist_wx_components_vant_weapp_dist_dialog_dialog__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__dist_wx_components_vant_weapp_dist_dialog_dialog__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__area__ = __webpack_require__(219);
 
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -233,11 +241,11 @@ if (false) {(function () {
             orderIdex: 0,
 
             ID: -1,
-            consignee: '我想',
-            phone: '13037586574',
+            consignee: '',
+            phone: '',
             city: '',
-            address: '我的老嘎就住在那个屯',
-            message: '啦啦啦',
+            address: '',
+            message: '',
             payed: false,
 
             URL: 'http://192.168.0.110:5000/',
@@ -261,7 +269,9 @@ if (false) {(function () {
             this.allCheck = !this.allCheck;
         },
         showPopup: function showPopup() {
-            this.show = true;
+            if (this.orders[this.orderIdex].payed === false) {
+                this.show = true;
+            }
         },
         popupClose: function popupClose() {
             this.show = false;
@@ -4405,8 +4415,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('van-field', {
     attrs: {
-      "required": "",
-      "value": _vm.consignee,
+      "disabled": _vm.orders[_vm.orderIdex].payed === true ? true : _vm.fasle,
+      "required": _vm.orders[_vm.orderIdex].payed === true ? _vm.fasle : true,
+      "value": _vm.orders[_vm.orderIdex].payed === true ? _vm.orders[_vm.orderIdex].consignee : _vm.consignee,
       "label": "收件人",
       "placeholder": "请输入姓名",
       "eventid": '0',
@@ -4419,8 +4430,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }), _vm._v(" "), _c('van-field', {
     attrs: {
-      "required": "",
-      "value": _vm.phone,
+      "disabled": _vm.orders[_vm.orderIdex].payed === true ? true : _vm.fasle,
+      "required": _vm.orders[_vm.orderIdex].payed === true ? _vm.fasle : true,
+      "value": _vm.orders[_vm.orderIdex].payed === true ? _vm.orders[_vm.orderIdex].phone : _vm.phone,
       "label": "手机号",
       "placeholder": "请输入手机号",
       "eventid": '1',
@@ -4433,10 +4445,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }), _vm._v(" "), _c('van-cell', {
     attrs: {
-      "required": "",
-      "title": "选择收货地址",
-      "value": _vm.city,
-      "is-link": "",
+      "required": _vm.orders[_vm.orderIdex].payed === true ? _vm.fasle : true,
+      "disabled": _vm.orders[_vm.orderIdex].payed === true ? true : _vm.fasle,
+      "title": _vm.orders[_vm.orderIdex].payed === true ? '收货地址' : '请选择收货地址',
+      "value": _vm.orders[_vm.orderIdex].payed === true ? _vm.orders[_vm.orderIdex].city : _vm.city,
+      "is-link": _vm.orders[_vm.orderIdex].payed === true ? _vm.fasle : true,
       "eventid": '2',
       "mpcomid": '4'
     },
@@ -4469,11 +4482,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   })], 1), _vm._v(" "), _c('van-field', {
     attrs: {
-      "required": "",
-      "value": _vm.address,
+      "disabled": _vm.orders[_vm.orderIdex].payed === true ? true : _vm.fasle,
+      "required": _vm.orders[_vm.orderIdex].payed === true ? _vm.fasle : true,
+      "value": _vm.orders[_vm.orderIdex].payed === true ? _vm.orders[_vm.orderIdex].address : _vm.address,
+      "placeholder": "请输入详细地址",
       "label": "详细地址",
       "type": "textarea",
-      "placeholder": "请输入详细地址",
       "autosize": "",
       "eventid": '5',
       "mpcomid": '7'
@@ -4485,10 +4499,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }), _vm._v(" "), _c('van-field', {
     attrs: {
-      "value": _vm.message,
+      "disabled": _vm.orders[_vm.orderIdex].payed === true ? true : _vm.fasle,
+      "value": _vm.orders[_vm.orderIdex].payed === true ? _vm.orders[_vm.orderIdex].message : _vm.message,
+      "placeholder": _vm.orders[_vm.orderIdex].payed === true ? '' : '给店主留言',
       "label": "留言",
       "type": "textarea",
-      "placeholder": "给店主留言",
       "autosize": "",
       "eventid": '6',
       "mpcomid": '8'
@@ -4549,8 +4564,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "footSpace"
   }), _vm._v(" "), _c('div', [_c('van-submit-bar', {
     attrs: {
+      "disabled": _vm.orders[_vm.orderIdex].payed === true ? true : _vm.fasle,
       "price": _vm.orders[_vm.orderIdex].tPrice,
-      "button-text": "微信支付",
+      "button-text": _vm.orders[_vm.orderIdex].payed === true ? '已经支付' : '微信支付',
       "tip": true,
       "eventid": '9',
       "mpcomid": '13'

@@ -8,7 +8,7 @@
     </view>
     <view class="_div data-v-624d30ff cells">
       <van-cell title="我的订单" bindtap="handleProxy" is-link data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_van-cell data-v-624d30ff"></van-cell>
-      <van-cell title="我的地址" is-link class="_van-cell data-v-624d30ff"></van-cell>
+      <van-cell title="超市简介" is-link class="_van-cell data-v-624d30ff"></van-cell>
     </view>
   </view>
 </template>

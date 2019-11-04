@@ -13,7 +13,7 @@
 
     <div class="cells">
       <van-cell title="我的订单" @click="toAllOrders" is-link />
-      <van-cell title="我的地址" is-link />
+      <van-cell title="超市简介" is-link />
     </div>
 
   </div>
@@ -141,10 +141,10 @@
   }
 
   .cells{
-    width: 80%;
+    width: 85%;
     position: absolute;
     top: 300rpx;
-    left: 10%;
+    left: 7.5%;
     overflow: hidden;
     border-radius: 15rpx;
     opacity: 0.96;

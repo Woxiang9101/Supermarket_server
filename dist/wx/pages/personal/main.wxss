@@ -63,10 +63,10 @@
   color: white;
 }
 .cells {
-  width: 80%;
+  width: 85%;
   position: absolute;
   top: 300rpx;
-  left: 10%;
+  left: 7.5%;
   overflow: hidden;
   border-radius: 15rpx;
   opacity: 0.96;

@@ -7,24 +7,29 @@
 
     <van-cell-group>
       <van-field
-        required
-        :value="consignee"
+        :disabled="orders[orderIdex].payed===true?true:fasle"
+        :required="orders[orderIdex].payed===true?fasle:true"
+        :value="orders[orderIdex].payed===true?orders[orderIdex].consignee:consignee"
         @change="fieldChange($event,'consignee')"
         label="收件人"
         placeholder="请输入姓名"
       />
       <van-field
-        required
+        :disabled="orders[orderIdex].payed===true?true:fasle"
+        :required="orders[orderIdex].payed===true?fasle:true"
         @change="fieldChange($event,'phone')"
-        :value="phone"
+        :value="orders[orderIdex].payed===true?orders[orderIdex].phone:phone"
         label="手机号"
         placeholder="请输入手机号"
       />
 
 
-      <van-cell required title="选择收货地址"
-                :value="city"
-                is-link @click="showPopup" />
+      <van-cell :required="orders[orderIdex].payed===true?fasle:true"
+                :disabled="orders[orderIdex].payed===true?true:fasle"
+                :title="orders[orderIdex].payed===true?'收货地址':'请选择收货地址'"
+                :value="orders[orderIdex].payed===true?orders[orderIdex].city:city"
+                :is-link="orders[orderIdex].payed===true?fasle:true"
+                @click="showPopup" />
       <van-popup
         :show="show"
         closeable
@@ -38,20 +43,22 @@
 
 
       <van-field
-        required
+        :disabled="orders[orderIdex].payed===true?true:fasle"
+        :required="orders[orderIdex].payed===true?fasle:true"
+        :value="orders[orderIdex].payed===true?orders[orderIdex].address:address"
+        placeholder="请输入详细地址"
         @change="fieldChange($event,'address')"
-        :value="address"
         label="详细地址"
         type="textarea"
-        placeholder="请输入详细地址"
         autosize
       />
       <van-field
-        :value="message"
+        :disabled="orders[orderIdex].payed===true?true:fasle"
+        :value="orders[orderIdex].payed===true?orders[orderIdex].message:message"
+        :placeholder="orders[orderIdex].payed===true?'':'给店主留言'"
         @change="fieldChange($event,'message')"
         label="留言"
         type="textarea"
-        placeholder="给店主留言"
         autosize
       />
 
@@ -90,8 +97,9 @@
 
     <div>
       <van-submit-bar
+        :disabled="orders[orderIdex].payed===true?true:fasle"
         :price="orders[orderIdex].tPrice"
-        button-text="微信支付"
+        :button-text="orders[orderIdex].payed===true?'已经支付':'微信支付'"
         @submit="pay"
         :tip="true"
       >
@@ -137,11 +145,11 @@
             orderIdex:0,
 
             ID:-1,
-            consignee: '我想',
-            phone: '13037586574',
+            consignee: '',
+            phone: '',
             city:'',
-            address:'我的老嘎就住在那个屯',
-            message: '啦啦啦',
+            address:'',
+            message: '',
             payed:false,
 
             URL:'http://192.168.0.110:5000/',
@@ -164,7 +172,9 @@
             this.allCheck = !this.allCheck
           },
           showPopup: function () {
-            this.show = true
+              if(this.orders[this.orderIdex].payed===false){
+                  this.show = true
+              }
           },
           popupClose: function () {
             this.show = false
