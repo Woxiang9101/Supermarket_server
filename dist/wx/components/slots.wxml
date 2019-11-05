@@ -1,3 +1,2 @@
 <import src="/components/mainXScrollItem/mainXScrollItem.vue.wxml" />
-<import src="/components/mainXScrollItem/mainXScrollItem.vue.wxml" />
 <import src="/components/mainYScrollItem/mainYScrollItem.vue.wxml" />

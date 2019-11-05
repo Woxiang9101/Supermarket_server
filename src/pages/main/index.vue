@@ -5,7 +5,7 @@
     <swiper class="swiper" indicator-dots="true" autoplay="true" circular="true">
 
       <swiper-item @click="todetail(201616060301)">
-        <img class="swiperItem" src="/static/demo/swiper1.jpg" alt="">
+        <img class="swiperItem" src="http://192.168.0.110:5000/main/s1.jpg" alt="">
       </swiper-item>
 
       <swiper-item @click="todetail(201616060302)">

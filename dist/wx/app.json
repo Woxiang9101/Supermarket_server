@@ -1,6 +1,5 @@
 {
   "pages": [
-
     "pages/main/main",
     "pages/details/main",
     "pages/activity/main",
@@ -41,5 +40,6 @@
       }
     ]
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap0.json"
 }
