@@ -1,0 +1,8 @@
+<template name="2e81c62e">
+  <view class="_div data-v-128ea2f2 scrollXItem" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+    <image class="_img data-v-128ea2f2 ximg" src="{{imgSrc}}"></image>
+    <view class="_p data-v-128ea2f2 title">{{title}}</view>
+    <view class="_p data-v-128ea2f2 price">￥{{price}}</view>
+    <view class="_s data-v-128ea2f2 orprice">￥{{orprice}}</view>
+  </view>
+</template>

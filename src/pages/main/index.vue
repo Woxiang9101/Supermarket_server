@@ -25,113 +25,53 @@
 <!--    横向滑动条-->
     <scroll-view class="scrollX" scroll-x="true" bindscroll="scroll"
                   style="width: 100%">
-      <div class="scrollXItem">
-        <img class="ximg" src="/static/demo/scrox.jpg"/>
-        <p class="title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</p>
-        <p class="price">￥64.9</p>
-        <s class="orprice">￥77.50</s>
-      </div>
-      <div class="scrollXItem">
-        <img class="ximg" src="/static/demo/scrox.jpg"/>
-        <p class="title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</p>
-        <p class="price">￥64.9</p>
-        <s class="orprice">￥77.50</s>
-      </div>
-      <div class="scrollXItem">
-        <img class="ximg" src="/static/demo/scrox.jpg"/>
-        <p class="title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</p>
-        <p class="price">￥64.9</p>
-        <s class="orprice">￥77.50</s>
-      </div>
-      <div class="scrollXItem">
-        <img class="ximg" src="/static/demo/scrox.jpg"/>
-        <p class="title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</p>
-        <p class="price">￥64.9</p>
-        <s class="orprice">￥77.50</s>
-      </div>
-      <div class="scrollXItem">
-        <img class="ximg" src="/static/demo/scrox.jpg"/>
-        <p class="title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</p>
-        <p class="price">￥64.9</p>
-        <s class="orprice">￥77.50</s>
-      </div>
-      <div class="scrollXItem">
-        <img class="ximg" src="/static/demo/scrox.jpg"/>
-        <p class="title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</p>
-        <p class="price">￥64.9</p>
-        <s class="orprice">￥77.50</s>
-      </div>
-      <div class="scrollXItem">
-        <img class="ximg" src="/static/demo/scrox.jpg"/>
-        <p class="title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</p>
-        <p class="price">￥64.9</p>
-        <s class="orprice">￥77.50</s>
-      </div>
-      <div class="scrollXItem">
-        <img class="ximg" src="/static/demo/scrox.jpg"/>
-        <p class="title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</p>
-        <p class="price">￥64.9</p>
-        <s class="orprice">￥77.50</s>
-      </div>
-      <div class="scrollXItem">
-        <img class="ximg" src="/static/demo/scrox.jpg"/>
-        <p class="title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</p>
-        <p class="price">￥64.9</p>
-        <s class="orprice">￥77.50</s>
-      </div>
-      <div class="scrollXItem">
-        <img class="ximg" src="/static/demo/scrox.jpg"/>
-        <p class="title">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</p>
-        <p class="price">￥64.9</p>
-        <s class="orprice">￥77.50</s>
-      </div>
+
+      <mainXScrollItem ID='201616060301'
+                       title="这是mainXScrollitem组件"
+                       price="15.00"
+                       orprice="25.25"
+                       imgSrc="/static/demo/scrox.jpg">
+      </mainXScrollItem>
+
+      <mainXScrollItem ID='201616060301'
+                       title="这是mainXScrollitem组件"
+                       price="15.00"
+                       orprice="25.25"
+                       imgSrc="/static/demo/scrox.jpg">
+      </mainXScrollItem>
+      <mainXScrollItem ID='201616060301'
+                       title="这是mainXScrollitem组件"
+                       price="15.00"
+                       orprice="25.25"
+                       imgSrc="/static/demo/scrox.jpg">
+      </mainXScrollItem>
+      <mainXScrollItem ID='201616060301'
+                       title="这是mainXScrollitem组件"
+                       price="15.00"
+                       orprice="25.25"
+                       imgSrc="/static/demo/scrox.jpg">
+      </mainXScrollItem>
+      <mainXScrollItem ID='201616060301'
+                       title="这是mainXScrollitem组件"
+                       price="15.00"
+                       orprice="25.25"
+                       imgSrc="/static/demo/scrox.jpg">
+      </mainXScrollItem>
+
     </scroll-view>
 
 <!--    Tab标签页-->
     <van-tabs sticky animated swipeable :border="false" >
       <van-tab class="tab" title="超市精选">
-        <div class="scrollYItem">
-          <img class="yimg" src="/static/demo/scrox.jpg"/>
-          <p class="ytitle">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</p>
-          <p class="price">￥64.9</p>
-          <s class="orprice">￥77.50</s>
-        </div>
-        <div class="scrollYItem">
-          <img class="yimg" src="/static/demo/scrox.jpg"/>
-          <p class="ytitle">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</p>
-          <p class="price">￥64.9</p>
-          <s class="orprice">￥77.50</s>
-        </div>
-        <div class="scrollYItem">
-          <img class="yimg" src="/static/demo/scrox.jpg"/>
-          <p class="ytitle">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</p>
-          <p class="price">￥64.9</p>
-          <s class="orprice">￥77.50</s>
-        </div>
-        <div class="scrollYItem">
-          <img class="yimg" src="/static/demo/scrox.jpg"/>
-          <p class="ytitle">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</p>
-          <p class="price">￥64.9</p>
-          <s class="orprice">￥77.50</s>
-        </div>
-        <div class="scrollYItem">
-          <img class="yimg" src="/static/demo/scrox.jpg"/>
-          <p class="ytitle">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</p>
-          <p class="price">￥64.9</p>
-          <s class="orprice">￥77.50</s>
-        </div>
-        <div class="scrollYItem">
-          <img class="yimg" src="/static/demo/scrox.jpg"/>
-          <p class="ytitle">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</p>
-          <p class="price">￥64.9</p>
-          <s class="orprice">￥77.50</s>
-        </div>
-        <div class="scrollYItem">
-          <img class="yimg" src="/static/demo/scrox.jpg"/>
-          <p class="ytitle">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</p>
-          <p class="price">￥64.9</p>
-          <s class="orprice">￥77.50</s>
-        </div>
+
+        <mainYScrollItem ID='201616060302'
+                         title="这是mainYScrollitem组件"
+                         price="15.00"
+                         orprice="25.25"
+                         imgSrc="/static/demo/scrox.jpg">
+        </mainYScrollItem>
+
+
         <div class="scrollYItem">
           <img class="yimg" src="/static/demo/scrox.jpg"/>
           <p class="ytitle">花木星球洗衣液氨基la酸小分子洁净 祖玛龙城。。。</p>
@@ -406,6 +346,8 @@
 </template>
 
 <script>
+  import mainXScrollItem from "../../components/mainXScrollItem/mainXScrollItem";
+  import mainYScrollItem from "../../components/mainYScrollItem/mainYScrollItem";
 
   export default {
 
@@ -420,13 +362,16 @@
       }
     },
     methods:{
-    todetail:(ID) => {
+      todetail:(ID) => {
       console.log('点击了一下下')
-      console.log(wx)
       wx.navigateTo({
         url: '/pages/details/main?ID=' + ID,
       })
       }
+    },
+    components: {
+        mainXScrollItem,
+        mainYScrollItem
     }
 
 
